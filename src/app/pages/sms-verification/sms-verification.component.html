@@ -1,0 +1,39 @@
+<section class="verification-wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <a routerLink="/" class="back-btn" *ngIf="isMobile">
+    <span class="material-icons">keyboard_arrow_left</span>
+  </a>
+
+  <section class="main-section">
+    <newsreel-logo-link class="logo" *ngIf="isDesktop"></newsreel-logo-link>
+
+    <h3 class="title">Phone Verification</h3>
+    <p class="subtitle">Type in SMS verification Code</p>
+
+    <form class="form-section" [formGroup]="phoneConfirm" (submit)="verifyCode()">
+      <newsreel-sms-code-input [control]="phoneConfirm.get('code')"></newsreel-sms-code-input>
+
+      <section class="btn-section">
+        <button
+        class="neewsreel-submit-btn"
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="phoneConfirm.invalid || (loading$ | async)">
+          Continue
+        </button>
+      </section>
+
+      <section class="footer-section" *ngIf="isDesktop">
+        <span class="text">Didn't receive the code?</span>
+        <span class="resend-btn" (click)="sendCode()">Resend</span>
+      </section>
+    </form>
+  </section>
+
+  <section class="footer-section" *ngIf="isMobile">
+    <span class="text">Didn't receive the code?</span>
+    <span class="resend-btn" (click)="sendCode()">Resend</span>
+  </section>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</section>

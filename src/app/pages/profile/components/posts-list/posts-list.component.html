@@ -1,0 +1,20 @@
+<section class="main">
+  <div class="card" *ngFor="let post of posts$ | async; trackBy: trackPosts">
+    <ng-container [ngSwitch]="post.type">
+      <newsreel-psa *ngSwitchCase="'psa'" [psa]="post" (change)="updatePost($event)" (delete)="removePost($event)"></newsreel-psa>
+
+      <newsreel-poll *ngSwitchCase="'poll'" [poll]="post" (change)="updatePost($event)" (delete)="removePost($event)"></newsreel-poll>
+
+      <newsreel-meme *ngSwitchCase="'meme'" [meme]="post" (change)="updatePost($event)" (delete)="removePost($event)"></newsreel-meme>
+
+      <newsreel-tweet *ngSwitchCase="'repost'" [tweet]="post" (change)="updatePost($event)" (delete)="removePost($event)"></newsreel-tweet>
+
+      <newsreel-article *ngSwitchCase="'article'" [article]="post" (change)="updatePost($event)" (delete)="removePost($event)"></newsreel-article>
+    </ng-container>
+  </div>
+
+  <h3 *ngIf="!(posts$ | async).length && !(loading$ | async)" class="empty">No Posts Found</h3>
+
+  <newsreel-animated-spinner [showSpinner]="showSpinner$ | async"></newsreel-animated-spinner>
+
+</section>

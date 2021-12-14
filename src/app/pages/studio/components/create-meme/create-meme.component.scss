@@ -1,0 +1,98 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  //.image-upload {
+  //  padding: 20px;
+  //}
+
+  .wrapper {
+    //padding: 30px 20px;
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    color: $gray-deep;
+
+    .input-wrapper {
+      display: grid;
+      grid-gap: 30px;
+
+      .select {
+        padding: 0 10px;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+
+      .toggle {
+        margin: 0 auto;
+        font-size: 14px;
+      }
+
+      .title-input {
+        width: 100%;
+        padding: 19px 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+
+        &::placeholder {
+          color: $gray-deep;
+          opacity: 1;
+        }
+      }
+    }
+
+    &.desktop-version {
+      .input-wrapper {
+        //grid-template-columns: 1fr 150px;
+        align-items: center;
+
+        &.with-title {
+          //grid-template-columns: .5fr .5fr auto;
+
+          .toggle {
+            //grid-column-start: 3;
+          }
+
+          .title-input {
+            //grid-column-start: 2;
+            //grid-row-start: 1;
+          }
+        }
+      }
+
+      .neewsreel-submit-btn {
+        width: 300px;
+        justify-self: center;
+      }
+    }
+  }
+}
+
+.relative-form-field {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.form-field-label-name {
+  width: 100%;
+  display: block;
+  margin-bottom: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #141414;
+}
+
+.select-new-label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #B6B6B6;
+}

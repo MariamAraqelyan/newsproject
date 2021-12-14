@@ -1,0 +1,101 @@
+<section class="container" [ngClass]="{ 'desktop-version': isDesktop }">
+
+  <section class="wrapper">
+
+    <ng-container *ngIf="isDesktop">
+      <section class="card small-padding" id="button-card">
+        <button *ngFor="let btnType of postTypeList; let i = index"
+                class="neewsreel-feed-btn"
+                type="submit"
+                [ngClass]="{ 'active': i == selectedTypeIndex }"
+                mat-raised-button (click)="changePostType(btnType.type, i)">
+          <img src="assets/temp/{{btnType.icon}}.png"/>
+          <span>
+          {{btnType.name}}</span>
+        </button>
+      </section>
+    </ng-container>
+
+
+    <h1 class="feed-title" *ngIf="!(posts$ | async).length && !(loading$ | async) && (isAllLoaded$ | async)">No Posts
+      Found</h1>
+    <div class="card" *ngFor="let post of posts$ | async; trackBy: trackPosts">
+      <ng-container [ngSwitch]="post.type">
+        <newsreel-psa *ngSwitchCase="'psa'" [psa]="post" (change)="updatePost($event)"
+                      (delete)="removePost($event)"></newsreel-psa>
+
+        <newsreel-poll *ngSwitchCase="'poll'" [poll]="post" (change)="updatePost($event)"
+                       (delete)="removePost($event)"></newsreel-poll>
+
+        <newsreel-meme *ngSwitchCase="'meme'" [meme]="post" (change)="updatePost($event)"
+                       (delete)="removePost($event)"></newsreel-meme>
+
+        <newsreel-tweet *ngSwitchCase="'repost'" [tweet]="post" (change)="updatePost($event)"
+                        (delete)="removePost($event)"></newsreel-tweet>
+
+        <newsreel-article *ngSwitchCase="'article'" [article]="post" (change)="updatePost($event)"
+                          (delete)="removePost($event)"></newsreel-article>
+      </ng-container>
+    </div>
+
+    <newsreel-animated-spinner [showSpinner]="showSpinner$ | async"></newsreel-animated-spinner>
+  </section>
+
+  <section class="wrapper right-section" *ngIf="isDesktop">
+    <div class="card right-section-padding">
+      <div class="center-position">
+
+        <div class="center-position__image">
+          <img src="assets/svg/globus.svg" width="104px" height="104px">
+        </div>
+
+        <div class="center-position__title">
+          Help Us Grow Our Movement!
+        </div>
+
+        <div class="center-position__info">
+          Click the button below to share with your friends on Twitter and help us
+          spread our movement!
+        </div>
+
+        <button class="center-position_btn" (click)="shareByTwitter()">
+          <img src="assets/svg/twitter-badge.svg" width="18px" height="16px"/>
+          Share To Twitter
+        </button>
+
+      </div>
+    </div>
+
+    <div class="card right-section-padding">
+
+      <p class="featured-creator-title">Featured Creators</p>
+
+      <div class="featured-creator-card" *ngFor="let item of featuredCreatorsList">
+        <div class="featured-creator-card__img"
+             [ngStyle]="{'background-image': 'url(' + item?.avatar_thumbnail + ')'}"></div>
+        <div class="featured-creator-card__center">
+          <div class="name">
+            By {{item?.username}}
+          </div>
+          <div class="info">
+            <newsreel-star-rating class="rating"
+                                  [rate]="item.rating"
+                                  [quantity]="item.own_reviews"
+                                  [isShort]="true"
+                                  [dynamicSize]="true"
+                                  [allowResponsive]="false"></newsreel-star-rating>
+          </div>
+        </div>
+        <div class="featured-creator-card__view">
+          <a class="view-link" [routerLink]="['/profile', item.id]">View More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button *ngIf="!isDesktop" class="invite-btn" (click)="openDialog()">
+    <img src="assets/svg/mobile-user.svg" width="22px" height="24px"/>
+    Invite Friends
+  </button>
+
+</section>

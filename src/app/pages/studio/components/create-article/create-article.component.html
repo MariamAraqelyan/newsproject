@@ -1,0 +1,108 @@
+<!--<mat-tab-group-->
+<!--*ngIf="isDesktop"-->
+<!--class="blue-theme desktop-version"-->
+<!--mat-stretch-tabs-->
+<!--(selectedIndexChange)="emitUploadTabChange($event === 0 ? 'image' : 'video')">-->
+<!--  <mat-tab label="Image">-->
+<!--    <ng-template matTabContent>-->
+<!--      <newsreel-add-image [isDesktop]="true"></newsreel-add-image>-->
+<!--    </ng-template>-->
+<!--  </mat-tab>-->
+
+<!--  <mat-tab label="Video">-->
+<!--    <ng-template matTabContent>-->
+<!--      <newsreel-add-video [isDesktop]="true"></newsreel-add-video>-->
+<!--    </ng-template>-->
+<!--  </mat-tab>-->
+<!--</mat-tab-group>-->
+
+<form class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="articleGroup" (submit)="submit()">
+  <section class="input-wrapper" [ngClass]="{ 'no-toggle': !(showToggle$ | async) }">
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Select Post Type</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <!--        <mat-label>Select Post Type</mat-label>-->
+
+        <mat-select [(value)]="postTypeList[0]" (selectionChange)="changePostType($event.value)">
+          <mat-option *ngFor="let category of postTypeList"
+                      [value]="category">{{ category.name }}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+    <div class="relative-form-field">
+
+      <label class="form-field-label-name">Choose category</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <mat-label *ngIf="articleGroup.get('category').value == ''">Category</mat-label>
+
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Media Type</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <mat-select [(value)]="mediaTypeDefault" (selectionChange)="changeMediaType($event.value)">
+          <mat-option value="image">Image</mat-option>
+          <mat-option value="video">Video</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+
+
+    <ng-container *ngIf="mediaTypeDefault === 'image'">
+      <div class="relative-form-field">
+        <label class="form-field-label-name">Upload images</label>
+        <newsreel-add-image [isDesktop]="true"></newsreel-add-image>
+      </div>
+    </ng-container>
+
+
+    <ng-container *ngIf="mediaTypeDefault === 'video'">
+      <newsreel-add-video [isDesktop]="true"></newsreel-add-video>
+    </ng-container>
+
+
+    <div class="relative-form-field">
+
+      <label class="form-field-label-name">Title</label>
+
+      <input class="title-input" formControlName="title" placeholder="Title...">
+    </div>
+
+    <ng-switchery *ngIf="showToggle$ | async" onLabel="Include Body Text"
+                  (change)="handleToggle($event.target.value)"
+                  color="switchery-warning"
+                  name="switchery-check"></ng-switchery>
+  </section>
+
+  <div class="relative-form-field" *ngIf="showEditItem">
+    <label class="form-field-label-name">Body Text</label>
+    <newsreel-quill-editor
+      [control]="articleGroup.get('text')"
+      *ngIf="showEditor$ | async"
+      [textControl]="description"
+      [isExtended]="true">
+    </newsreel-quill-editor>
+  </div>
+
+  <button
+    type="submit"
+    class="neewsreel-submit-btn"
+    [disabled]="(disable$ | async) || (loading$ | async)"
+    mat-raised-button>
+    Publish
+  </button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

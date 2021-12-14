@@ -1,0 +1,77 @@
+<div class="container" [ngClass]="{ 'desktop-version': isDesktop }">
+  <section class="header">
+    <h3 class="title">
+      Comments
+      <span class="quantity">({{ post.comments }})</span>
+    </h3>
+  </section>
+
+  <section class="input-section" *ngIf="isDesktop">
+    <input class="answer-input" [formControl]="commentControl" placeholder="Write a comment">
+
+    <button
+    class="post-btn"
+    mat-raised-button
+    newsreelAuthCheck
+    (allow)="submitComment()"
+    [disabled]="commentControl.invalid">
+      Post
+    </button>
+  </section>
+
+  <section class="main">
+    <div class="comment-wrapper" *ngFor="let comment of comments$ | async; trackBy: trackComments">
+      <newsreel-comments-thread [comment]="comment" [postId]="postId"></newsreel-comments-thread>
+    </div>
+
+    <h3 *ngIf="!(comments$ | async).length && !(loading$ | async)" class="empty">No Comments Found</h3>
+
+    <newsreel-animated-spinner [showSpinner]="loading$ | async"></newsreel-animated-spinner>
+  </section>
+
+  <section class="bottom-menu">
+    <div class="user-link" *ngIf="isMobile" [ngClass]="{ 'visible': showUserLink$ | async }">
+      <newsreel-user-info class="user-info" [user]="post.author"></newsreel-user-info>
+
+      <a [routerLink]="['/profile', post.author.id]">
+        <button class="view-btn" mat-stroked-button>View Profile</button>
+      </a>
+    </div>
+
+    <section class="action-panel" *ngIf="isMobile">
+      <input class="answer-input" [formControl]="commentControl" placeholder="Write a comment...">
+
+      <div class="btn-panel">
+        <button
+        class="btn"
+        aria-label="send comment"
+        mat-icon-button
+        newsreelAuthCheck
+        (allow)="submitComment()"
+        [disabled]="commentControl.invalid">
+          <img src="assets/svg/comment-send.svg" width="22px" height="22px" alt="send icon">
+        </button>
+
+        <button
+        class="btn"
+        aria-label="upvote post"
+        mat-icon-button
+        newsreelAuthCheck
+        (allow)="handleVote()">
+          <span class="upvote">
+            <img src="assets/svg/accordion-black.svg" width="20px" height="12px" alt="upvote icon">
+            <span class="count">{{ post.upvotes || 0 }}</span>
+          </span>
+        </button>
+
+        <button class="btn" aria-label="repost" mat-icon-button (click)="handleRepost()">
+          <img src="assets/svg/post-reply.svg" width="22px" height="22px" alt="repost icon">
+        </button>
+
+        <a [href]="smsLink$ | async" class="sms-btn">
+          <img src="assets/svg/green-btn.svg" width="24px" height="24px" alt="sms link icon">
+        </a>
+      </div>
+    </section>
+  </section>
+</div>

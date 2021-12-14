@@ -1,0 +1,70 @@
+@import 'src/app/styles/colors';
+
+:host {
+  padding: 20px;
+  display: block;
+  position: relative;
+  background-color: #fefefe;
+
+  .close-btn {
+    cursor: pointer;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 10px;
+
+    .inputs-section {
+      max-height: 294px;
+      min-height: 50vh;
+      display: grid;
+      overflow: auto;
+
+      .file-wrapper {
+        @media (min-width: 700px) {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-gap: 25px;
+        }
+
+        .file-uploader {
+          display: grid;
+          position: relative;
+          grid-gap: 5px;
+          font-size: 13px;
+          font-weight: 500;
+          color: $gray-deep;
+          text-align: center;
+          user-select: none;
+
+          .upload-icon {
+            position: absolute;
+            right: calc(50% - 70px);
+            bottom: 30px;
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .2);
+            border-radius: 50%;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .input-item {
+        display: grid;
+        justify-items: start;
+        grid-gap: 5px;
+        font-size: 11px;
+      }
+    }
+
+    .btn-section {
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    &.desktop-version {
+      .inputs-section {
+        min-height: 500px;
+      }
+    }
+  }
+}

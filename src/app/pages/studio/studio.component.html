@@ -1,0 +1,44 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <newsreel-desktop-header *ngIf="isDesktop" class="header"></newsreel-desktop-header>
+
+  <newsreel-mob-header *ngIf="isMobile" class="header"></newsreel-mob-header>
+
+  <main class="main-content">
+
+<!--    <mat-tab-group-->
+<!--    *ngIf="(showAdditionalTab$ | async) && isMobile"-->
+<!--    class="blue-theme"-->
+<!--    mat-stretch-tabs-->
+<!--    [selectedIndex]="initialSelectedTab$ | async"-->
+<!--    (selectedIndexChange)="emitUploadTabChange($event === 0 ? 'image' : 'video')">-->
+<!--      <mat-tab label="Image">-->
+<!--        <ng-template matTabContent>-->
+<!--          <newsreel-add-image></newsreel-add-image>-->
+<!--        </ng-template>-->
+<!--      </mat-tab>-->
+
+<!--      <mat-tab label="Video">-->
+<!--        <ng-template matTabContent>-->
+<!--          <newsreel-add-video></newsreel-add-video>-->
+<!--        </ng-template>-->
+<!--      </mat-tab>-->
+<!--    </mat-tab-group>-->
+
+
+<!--    <newsreel-add-image *ngIf="(showImageUpload$ | async) && isMobile" class="image" text="Add Meme Image"></newsreel-add-image>-->
+
+    <section>
+<!--      <nav class="navbar" [ngClass]="{ 'desktop-version': isDesktop }" mat-tab-nav-bar mat-stretch-tabs>-->
+<!--        <a routerLink="create/" mat-tab-link routerLinkActive #rlaCreate="routerLinkActive" [active]="rlaCreate.isActive">Create</a>-->
+<!--        <a routerLink="psa/" mat-tab-link routerLinkActive #rlaPSA="routerLinkActive" [active]="rlaPSA.isActive">PSA</a>-->
+<!--        <a routerLink="repost/" mat-tab-link routerLinkActive #rlaRepost="routerLinkActive" [active]="rlaRepost.isActive">Repost</a>-->
+<!--      </nav>-->
+
+      <div class="inner-tab">
+              <div *ngIf="!isDesktop" class="title-create-post">Create post</div>
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+
+  </main>
+</section>

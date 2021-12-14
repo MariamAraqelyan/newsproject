@@ -1,0 +1,14 @@
+<a class="wrapper" [routerLink]="['/post', psa.slug]" [state]="{ post: psa }" title="Go to the Post Page">
+  <!-- TODO: use pipe for text - 1000 -> 1k -->
+  <newsreel-post-header-info [text]="psa.comments + ' comments'" [createdAt]="psa.created_at"></newsreel-post-header-info>
+
+  <article class="content newsreel-article-content" [innerHTML]="content"></article>
+</a>
+
+<newsreel-post-author-info
+[post]="psa"
+[showBtnPanel]="showFooterBtnPanel"
+(vote)="upvote()"
+(report)="report()"
+(delete)="handleDelete()">
+</newsreel-post-author-info>

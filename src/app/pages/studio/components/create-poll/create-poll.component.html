@@ -1,0 +1,53 @@
+<div class="relative-form-field">
+  <label class="form-field-label-name">Select Post Type</label>
+
+  <mat-form-field class="select" appearance="outline">
+<!--    <mat-label *ngIf="">Select Post Type</mat-label>-->
+
+    <mat-select [(value)]="postTypeList[0]" (selectionChange)="changePostType($event.value)">
+      <mat-option *ngFor="let category of postTypeList"
+                  [value]="category">{{ category.name }}</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+
+</div>
+
+<div class="relative-form-field">
+  <label class="form-field-label-name">Choose category</label>
+  <mat-form-field class="select" appearance="outline">
+    <mat-label class="select-label" *ngIf="pollGroup.get('category').value == ''">Category</mat-label>
+
+    <mat-select [formControl]="pollGroup.get('category')">
+      <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="relative-form-field">
+    <label class="form-field-label-name">Poll question</label>
+    <input class="title-input" [formControl]="pollGroup.get('question')" placeholder="Poll question title...">
+</div>
+
+<section class="choice-section">
+  <span class="text">Add choices (max 5)</span>
+
+  <div class="choices-wrapper">
+    <div class="choice" *ngFor="let item of list$ | async; trackBy: trackChoices;">
+      <span class="material-icons" (click)="removeChoice(item)">close</span>
+      <input class="choice-input" [formControl]="item.control" placeholder="Choice title..">
+    </div>
+  </div>
+
+  <span class="text add" (click)="addChoice()">Add another choice</span>
+</section>
+
+<button
+class="neewsreel-submit-btn"
+mat-raised-button
+[disabled]="pollGroup.invalid || (loading$ | async)"
+(click)="submit()">
+  Submit Poll
+</button>
+
+<newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>

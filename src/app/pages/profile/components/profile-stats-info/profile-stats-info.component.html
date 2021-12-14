@@ -1,0 +1,37 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <h1 class="title">Community Engagement</h1>
+
+  <section class="stats-wrapper">
+    <div class="stat-block">
+      <img src="assets/svg/posts.svg" width="25px" height="25px" alt="User Posts icon"/>
+      <span class="info">
+        <span class="value">{{ convertValue(user.posts) }}</span>
+        <span class="label">Posts</span>
+      </span>
+    </div>
+
+    <div class="stat-block">
+      <img src="assets/svg/subscribers.svg" width="25px" height="25px" alt="User Subscribers icon"/>
+      <span class="info">
+        <span class="value">{{ convertValue(user.subscribers) }}</span>
+        <span class="label">Subscribers</span>
+      </span>
+    </div>
+
+    <div class="stat-block comments">
+      <img src="assets/svg/comments.svg" width="25px" height="25px" alt="User Comments icon"/>
+      <span class="info">
+        <span class="value">{{ convertValue(user.comments) }}</span>
+        <span class="label">Comments</span>
+      </span>
+    </div>
+
+    <div class="stat-block">
+      <img src="assets/svg/star.svg" width="25px" height="25px" alt="User Reviews icon"/>
+      <span class="info">
+        <span class="value">{{ convertValue(user.reviews) }}</span>
+        <span class="label">Reviews</span>
+      </span>
+    </div>
+  </section>
+</section>

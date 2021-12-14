@@ -1,0 +1,87 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <div class="content">
+    <section class="info">
+      <newsreel-profile-main-info [user]="user$ | async"></newsreel-profile-main-info>
+
+      <button class="edit-btn" *ngIf="isOwnProfile$ | async" mat-icon-button (click)="openEditModal()">
+        <span class="material-icons edit-icon">edit</span>
+      </button>
+
+      <!-- TODO: use subscribe btn component here -->
+      <section class="btn-section">
+        <button
+        class="btn stroked"
+        *ngIf="(user$ | async).is_subscribed && !(isOwnProfile$ | async) else subscribeBtn"
+        mat-stroked-button
+        [disabled]="(isOwnProfile$ | async) || (loading$ | async)"
+        (click)="unsubscribe()">
+          Unsubscribe
+        </button>
+
+        <ng-template #subscribeBtn>
+          <button
+          class="btn feeled"
+          mat-raised-button
+          newsreelAuthCheck
+          (allow)="subscribe()"
+          [disabled]="(isOwnProfile$ | async) || (loading$ | async)">
+            Subscribe
+          </button>
+        </ng-template>
+
+        <button
+        class="stroked btn"
+        mat-stroked-button
+        newsreelAuthCheck
+        (allow)="handleReview()"
+        [disabled]="(isOwnProfile$ | async) || (loading$ | async) || (user$ | async).is_reviewed">
+          Review Journalist
+        </button>
+      </section>
+
+      <newsreel-profile-stats-info [user]="user$ | async"></newsreel-profile-stats-info>
+
+      <newsreel-reviews-info *ngIf="isDesktop" [user]="user$ | async"></newsreel-reviews-info>
+    </section>
+
+    <mat-tab-group mat-stretch-tabs [ngClass]="{ 'desktop-version': isDesktop }">
+      <mat-tab label="Posts">
+        <ng-template matTabContent>
+          <newsreel-posts-list exclude="psa" [user]="user$ | async"></newsreel-posts-list>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="PSA">
+        <ng-template matTabContent>
+          <newsreel-posts-list type="psa" [user]="user$ | async"></newsreel-posts-list>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Reviews" *ngIf="isMobile">
+        <ng-template matTabContent>
+          <section>
+            <newsreel-reviews-info [user]="user$ | async"></newsreel-reviews-info>
+
+            <newsreel-reviews-list class="reviews-mob" [user]="user$ | async" [useLayoutScroll]="true"></newsreel-reviews-list>
+
+            <a
+            class="link"
+            *ngIf="!(isOwnProfile$ | async)"
+            [routerLink]="['/write-review', (user$ | async).id]"
+            [state]="{ user: (user$ | async) }">
+              <button mat-raised-button class="create-review">
+                <span class="material-icons">edit</span>
+                <span class="text">Write a Peer Review</span>
+                <span class="material-icons">arrow_forward_ios</span>
+              </button>
+            </a>
+          </section>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>
+
+<aside class="sidebar" *ngIf="isDesktop">
+  <newsreel-reviews-list class="reviews" [user]="user$ | async"></newsreel-reviews-list>
+</aside>

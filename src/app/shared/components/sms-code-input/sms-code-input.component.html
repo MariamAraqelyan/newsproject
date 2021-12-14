@@ -1,0 +1,7 @@
+<label [for]="ID">
+  <div class="line-wrapper">
+    <span class="line" *ngFor="let line of lines; trackBy: trackLines">{{ control.value[line] }}</span>
+  </div>
+</label>
+
+<input [id]="ID" class="sms-code-input" type="tel" [formControl]="control" [maxlength]="codeLength" autofocus #input>

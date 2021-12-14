@@ -1,0 +1,22 @@
+<section class="header" *ngIf="isMobile">
+  <a routerLink="/" class="back-btn">
+    <span class="material-icons">keyboard_arrow_left</span>
+  </a>
+
+  <h4>Advertising Opportunities</h4>
+</section>
+
+<newsreel-desktop-header *ngIf="isDesktop"></newsreel-desktop-header>
+
+<main class="main-content" [ngClass]="{ 'desktop-version': isDesktop }">
+  <newsreel-legal-page-navbar *ngIf="isDesktop" class="navbar"></newsreel-legal-page-navbar>
+
+  <h1 class="title">Advertising Opportunities</h1>
+
+  <mat-card class="wrapper">
+    <p>
+      Newsreel and the Newsreel are an indispensable resource for influential brand marketers, agency executives and publishers.
+      If you wish to speak to us about advertising opportunities please contact us per e-mail using info@Newsreel.io.
+    </p>
+  </mat-card>
+</main>

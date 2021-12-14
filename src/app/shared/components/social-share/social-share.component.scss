@@ -1,0 +1,149 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  .btn {
+    border-radius: 50%;
+    min-width: 25px;
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+    color: #fff;
+
+    &.facebook {
+      background-color: #4471D1;
+    }
+
+    &.twitter {
+      background-color: #03A9F4;
+    }
+
+    &.email {
+      background-color: #44CD5C;
+    }
+
+    &.copy {
+      background-color: #D14444;
+    }
+
+    .btn-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        //margin-right: 10px;
+        width: 50%;
+      }
+    }
+  }
+}
+
+.social-list {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  @media (min-width: 701px) {
+    flex-direction: column;
+    margin-top: 5px;
+
+    a.emailForm {
+      text-decoration: none;
+      display: flex;
+      color: #000000;
+      align-items: center;
+    }
+
+    &__title {
+      display: block;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.02em;
+      color: #141414;
+      height: 41.82px;
+      padding: 0 10px;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #E8E8E8;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__title {
+      display: none;
+    }
+    &__item {
+
+    }
+  }
+
+}
+
+@media (min-width: 701px) {
+  .cancel-btn {
+    display: none;
+  }
+  .mobile-title {
+    display: none;
+  }
+
+  .btn {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cancel-btn {
+    display: block;
+  }
+  .mobile-title {
+    display: block;
+    color: #141414;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .btn {
+    width: 54.6px;
+    height: 54.6px;
+  }
+}
+
+.cancel-btn {
+  width: 100%;
+  color: white;
+  background: #E74C3C;
+  border-radius: 72px;
+  //font-family: Metropolis;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  height: 44px;
+  border: none;
+  margin-top: 18px;
+}

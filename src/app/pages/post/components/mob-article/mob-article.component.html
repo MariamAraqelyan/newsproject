@@ -1,0 +1,54 @@
+<article class="wrapper">
+  <!-- TODO: use pipe for text - 1000 -> 1k -->
+
+  <div class="visual-content">
+    <img class="cover" *ngIf="article.image" [src]="article.image" width="100%" height="100%" loading="lazy" alt="Article image">
+
+    <div class="video-container" *ngIf="article.video">
+      <iframe
+      *ngIf="isYoutube$ | async else vimeo"
+      width="100%"
+      height="315"
+      loading="lazy"
+      [src]="url$ | async"
+      frameborder="0"
+      allowfullscreen
+      autoplay
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+
+      <ng-template #vimeo>
+        <div class="vimeo-container">
+          <iframe
+          [src]="url$ | async"
+          width="100%"
+          height="100%"
+          class="vimeo-iframe"
+          allow="autoplay; fullscreen; picture-in-picture"
+          frameborder="0"
+          allowfullscreen>
+          </iframe>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <newsreel-post-header-info [text]="article.comments + ' comments'" [createdAt]="article.created_at"></newsreel-post-header-info>
+
+    <h1 class="title">{{ article.title }}</h1>
+
+    <newsreel-post-author-info
+    [post]="article"
+    [showBtnPanel]="false"
+    (vote)="upvote()"
+    (report)="report()">
+    </newsreel-post-author-info>
+  </div>
+
+  <article
+  *ngIf="content$ | async"
+  class="article-content newsreel-article-content"
+  [innerHTML]="content$ | async">
+  </article>
+</article>

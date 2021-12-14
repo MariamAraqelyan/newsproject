@@ -1,0 +1,6 @@
+{
+  "domain": "",
+  "apiUrl": "",
+  "accessTokenCheckSecondsInterval": 300,
+  "accessTokenMinutesLifetime": 43200
+}

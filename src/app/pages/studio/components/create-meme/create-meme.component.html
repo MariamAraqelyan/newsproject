@@ -1,0 +1,60 @@
+<form class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="memeGroup" (submit)="submit()">
+  <section class="input-wrapper" [ngClass]="{ 'with-title': showTitle$ | async }">
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Select Post Type</label>
+
+      <mat-form-field class="select" appearance="outline">
+<!--        <mat-label>Select Post Type</mat-label>-->
+
+        <mat-select [(value)]="postTypeList[0]" (selectionChange)="changePostType($event.value)">
+          <mat-option *ngFor="let category of postTypeList"
+                      [value]="category">{{ category.name }}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Choose category</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <mat-label *ngIf="memeGroup.get('category').value == ''">Category</mat-label>
+
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <ng-container>
+      <div class="relative-form-field">
+        <label class="form-field-label-name">Upload images</label>
+        <newsreel-add-image [isDesktop]="true"></newsreel-add-image>
+      </div>
+    </ng-container>
+
+<!--    <mat-slide-toggle class="toggle" color="primary" (change)="handleToggle($event.checked)">Include Title</mat-slide-toggle>-->
+
+    <ng-switchery  onLabel="Include Title"
+                  (change)="handleToggle($event.target.value)"
+                  color="switchery-warning"
+                  name="switchery-check" ></ng-switchery>
+
+    <div class="relative-form-field" *ngIf="showTitle$ | async">
+      <label class="form-field-label-name">Title</label>
+      <input class="title-input"  formControlName="title" placeholder="Title...">
+    </div>
+  </section>
+
+  <button
+  type="submit"
+  class="neewsreel-submit-btn"
+  mat-raised-button
+  [disabled]="(loading$ | async) || (disable$ | async)">
+    Publish
+  </button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

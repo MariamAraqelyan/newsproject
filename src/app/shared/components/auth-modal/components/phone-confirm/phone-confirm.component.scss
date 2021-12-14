@@ -1,0 +1,51 @@
+@import 'src/app/styles/colors';
+
+:host {
+  min-height: 100%;
+  padding: 10px;
+  display: grid;
+  position: relative;
+  grid-template-rows: 40px 1fr 69px;
+
+  .back-btn {
+    margin-top: 5px;
+    justify-self: start;
+
+    .material-icons {
+      font-size: 35px;
+      color: $gray-deep-70;
+      cursor: pointer;
+    }
+  }
+
+  .main-section {
+    min-width: 300px;
+    margin: 0 40px;
+    align-self: center;
+
+    .title {
+      font-weight: 500;
+    }
+
+    .subtitle {
+      color: $gray-deep;
+      font-size: 12px;
+    }
+
+    .form-section {
+      width: 100%;
+      margin-top: 20px;
+
+      .btn-section {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .neewsreel-submit-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

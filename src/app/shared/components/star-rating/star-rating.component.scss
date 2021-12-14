@@ -1,0 +1,94 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+
+  .rate {
+    margin-right: 5px;
+    text-align: end;
+
+    &.right {
+      min-width: 2em;
+      margin: 0 0 0 5px;
+      text-align: start;
+    }
+  }
+
+  .stars-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .material-icons {
+    padding: 0 2px;
+    font-size: 1.5em;
+    color: #ffa9ac;
+    user-select: none;
+
+    &.filled {
+      color: $orange-light;
+    }
+  }
+
+  .quantity {
+    margin-left: 2px;
+    color: $gray-deep;
+  }
+
+  &.responsive {
+    @media (max-width: 560px) {
+      .rate, .quantity {
+        font-size: 13px;
+      }
+
+      .material-icons {
+        padding: 0;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .rate, .quantity {
+        font-size: 12px;
+      }
+
+      .material-icons {
+        padding: 0;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .material-icons {
+        padding: 0;
+        font-size: 11px;
+      }
+    }
+  }
+
+
+  &.special-size {
+    .rate {
+      font-size: 10px;
+      color: #3F3E48;
+      font-weight: 600;
+      margin-right: 2px;
+    }
+
+    .stars-wrapper {
+      .material-icons {
+        font-size: 15px;
+      }
+    }
+
+    .quantity {
+      color: #99999E;
+      font-size: 10px;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  padding-top: 65px;
+  display: block;
+  position: relative;
+  background-color: #fafafa;
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  .main {
+    max-height: calc(100vh - 65px);
+    height: calc(100vh - 65px);
+    overflow: auto;
+  }
+
+  &.desktop-version {
+    padding: 20px 0;
+    background-color: $gray-light-background;
+
+    .header {
+      top: 10px;
+      left: 10px;
+
+      .material-icons {
+        font-size: 35px;
+        color: $gray-deep;
+        cursor: pointer;
+      }
+    }
+
+    .main {
+      max-height: unset;
+      height: auto;
+    }
+  }
+}

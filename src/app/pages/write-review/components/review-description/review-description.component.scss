@@ -1,0 +1,129 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  padding: 10px;
+  display: block;
+
+  .title {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: $orange-light;
+    font-size: 20px;
+
+    .step {
+      margin-right: 20px;
+      padding: 8px 20px;
+      font-size: 15px;
+      color: #fff;
+      background-color: $orange-light;
+      border-radius: 20px;
+    }
+  }
+
+  .main {
+    padding: 20px 0;
+
+    .description {
+      width: 100%;
+      min-height: 300px;
+      margin-bottom: 20px;
+      padding: 10px;
+      color: $gray-deep;
+      resize: vertical;
+    }
+
+    .move-btn {
+      width: 60%;
+      margin: 10px auto;
+      padding: 5px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background-color: $orange-light;
+      border-radius: 30px;
+
+      &:disabled {
+        opacity: .3;
+      }
+
+      .text {
+        margin: 0 15px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.desktop-version {
+    padding: 30px 0 0 0;
+
+    .title {
+      padding: 20px 40px;
+      justify-content: space-between;
+
+      .step {
+        order: 1;
+      }
+    }
+
+    .main {
+      padding: 0 40px;
+
+      .description {
+        border: 1px solid #c4bdbe;
+        border-radius: 15px;
+        outline: none;
+      }
+    }
+  }
+
+  .user-info {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+    .avatar-wrapper {
+      min-height: 120px;
+      min-width: 120px;
+      margin: 0 20px 0 0;
+      text-align: center;
+
+      .avatar {
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .info-section {
+      .name {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 500;
+
+        .badge-wrapper {
+          margin-left: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: default;
+
+          .badge-text {
+            margin-left: 3px;
+            color: $blue-mid;
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .separator {
+    min-height: 3px;
+    margin: 20px 0;
+    background-color: #d9d9d9;
+  }
+}

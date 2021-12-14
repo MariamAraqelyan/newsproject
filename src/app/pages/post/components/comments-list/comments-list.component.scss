@@ -1,0 +1,205 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+  position: relative;
+
+  .container {
+    margin: 0 10px;
+
+    .header {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        margin: 0;
+        font-weight: 500;
+
+        .quantity {
+          color: $gray-deep;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .main {
+      max-height: 100%;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+
+      .comment-wrapper {
+        margin: 10px 0px 20px;
+      }
+
+      .empty {
+        margin: 20px;
+        color: $gray-deep;
+        font-weight: normal;
+      }
+    }
+
+    .input-section {
+      margin-top: 15px;
+      padding: 10px 10px;
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 25px;
+
+      .answer-input {
+        height: 100%;
+        padding: 0 5px;
+        font-size: 18px;
+        background-color: inherit;
+        border: 0;
+        outline: 0;
+
+        &::placeholder {
+          opacity: .3;
+        }
+      }
+
+      .post-btn {
+        height: 42px;
+        color: #fff;
+        background-color: $orange-light;
+        border-radius: 30px;
+
+        &:disabled {
+          background-color: $gray-deep-70;
+        }
+      }
+    }
+
+    .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      z-index: 100;
+
+      .user-link {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        transition: all .3s;
+        overflow: hidden;
+
+        &.visible {
+          height: auto;
+          margin: 0 10px 30px;
+          padding: 5px;
+        }
+
+        .user-info {
+          font-size: 12px;
+        }
+
+        .view-btn {
+          color: $orange-light;
+          border: 1px solid $orange-light;
+          border-radius: 30px;
+        }
+      }
+
+      .action-panel {
+        padding: 12px 8px;
+        display: grid;
+        align-items: center;
+        grid-gap: 10px;
+        grid-template-columns: 50% 1fr;
+        background-color: #fff;
+        color: $gray-deep;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+        .answer-input {
+          height: 100%;
+          padding: 0 15px;
+          font-size: 13px;
+          background-color: inherit;
+          border: 1px solid $gray-deep-70;
+          border-radius: 30px;
+          outline: 0;
+
+          &::placeholder {
+            opacity: .3;
+          }
+        }
+
+        .btn-panel {
+          width: 100%;
+          max-width: 300px;
+          padding: 0 10px;
+          justify-self: end;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          @media (max-width: 380px) {
+            padding: 0;
+          }
+
+          .btn {
+            width: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: initial;
+
+            .upvote {
+              display: flex;
+              flex-flow: column;
+              align-items: center;
+              justify-content: center;
+              line-height: 20px;
+
+              .count {
+                font-size: 14px;
+                font-weight: normal;
+                color: #000;
+              }
+            }
+          }
+
+          .sms-btn {
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+
+    &.desktop-version {
+      .header {
+        .title {
+          font-weight: normal;
+        }
+      }
+
+      .main {
+        margin-top: 20px;
+        box-shadow: none;
+
+        .comment-wrapper {
+          margin: 10px 20px 20px;
+        }
+      }
+    }
+  }
+}

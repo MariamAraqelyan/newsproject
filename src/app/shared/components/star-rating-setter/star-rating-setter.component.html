@@ -1,0 +1,11 @@
+<section class="wrapper">
+  <span
+  class="material-icons"
+  *ngFor="let star of starList; trackBy: trackStars"
+  [ngClass]="{ 'filled': (star + 1) <= (selectedValue$ | async), 'hovered': (star + 1) <= (hoverValue$ | async) }"
+  (mouseenter)="setHoverValue(star + 1)"
+  (mouseleave)="setHoverValue()"
+  (click)="selectStar(star + 1)">
+    star
+  </span>
+</section>

@@ -1,0 +1,74 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .wrapper {
+    width: 100%;
+    display: block;
+
+    .neewsreel-input-wrapper {
+      width: 100%;
+      min-height: 3em;
+      margin-top: 5px;
+      padding: 8px 5px;
+      display: flex;
+      align-items: center;
+      background-color: $gray-light;
+      border: 2px solid $gray-mid-70;
+      border-radius: 12px;
+
+      .neewsreel-input-icon {
+        padding: 0 5px;
+        font-size: 19px;
+        color: $gray-deep-70;
+
+        &.area-icon {
+          align-self: start;
+        }
+      }
+
+      .neewsreel-input {
+        min-height: 21px;
+        width: calc(100% - 29px);
+        background-color: inherit;
+        border: none;
+        outline: none;
+
+        &::placeholder {
+          font-size: 12px;
+          opacity: .4;
+        }
+      }
+
+      .area {
+        resize: none;
+      }
+
+      &:hover, &:focus-within {
+        border-color: $gray-mid;
+
+        .neewsreel-input-icon {
+          color: $orange-mid;
+        }
+      }
+
+      &.error {
+        border: 2px solid $pink-light;
+      }
+    }
+
+    .neewsreel-input-label {
+      color: $gray-deep;
+      font-size: 11px;
+      font-weight: 500;
+    }
+  }
+
+  .error-msg {
+    min-height: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    color: $pink-mid;
+  }
+}

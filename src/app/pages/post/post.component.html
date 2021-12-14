@@ -1,0 +1,43 @@
+<section class="post-container" [ngClass]="{ 'desktop-version': isDesktop }">
+  <section class="main">
+
+    <div *ngIf="post$ | async as post" [ngClass]="{ 'card-wrapper': post.type !== 'article' && isMobile }">
+      <section class="card" [ngClass]="{ 'article-card': post.type === 'article' && isMobile }">
+        <ng-container [ngSwitch]="post.type">
+          <newsreel-psa *ngSwitchCase="'psa'" [psa]="post" [showFooterBtnPanel]="false"></newsreel-psa>
+
+          <newsreel-poll *ngSwitchCase="'poll'" [poll]="post" [showFooterBtnPanel]="false" (change)="updatePost($event)"></newsreel-poll>
+
+          <newsreel-meme *ngSwitchCase="'meme'" [meme]="post" [readMode]="false" [showFooterBtnPanel]="false"></newsreel-meme>
+
+          <newsreel-tweet *ngSwitchCase="'repost'" [tweet]="post" [showFooterBtnPanel]="false"></newsreel-tweet>
+
+          <ng-container *ngSwitchCase="'article'">
+            <newsreel-article *ngIf="isDesktop" [article]="post" [readMode]="false" [showFooterBtnPanel]="false"></newsreel-article>
+
+            <newsreel-mob-article *ngIf="isMobile" [article]="post"></newsreel-mob-article>
+          </ng-container>
+        </ng-container>
+
+        <newsreel-social-share class="social-share" *ngIf="isDesktop" [url]="shareLink$ | async"></newsreel-social-share>
+
+        <newsreel-report-btn *ngIf="isDesktop" [isReported]="post.reported" [postId]="post.id" (report)="handleReport()"></newsreel-report-btn>
+      </section>
+    </div>
+
+    <newsreel-related-story-list *ngIf="isMobile" class="stories" [postId]="(post$ | async).id"></newsreel-related-story-list>
+
+    <newsreel-comments-list
+    [postId]="(post$ | async).id"
+    [post]="post$ | async"
+    (repost)="repost()"
+    (upvote)="updatePost($event)">
+    </newsreel-comments-list>
+
+    <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+  </section>
+
+  <aside class="sidebar" *ngIf="isDesktop">
+    <newsreel-related-story-list class="stories" [postId]="(post$ | async).id"></newsreel-related-story-list>
+  </aside>
+</section>

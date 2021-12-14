@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  border-radius: 15px;
+  background-color: #909090;
+  border: 1px solid #909090;
+  overflow: hidden;
+
+  .item {
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #fff;
+
+    &.active {
+      color: #fff;
+      background-color: #909090;
+    }
+  }
+}

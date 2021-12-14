@@ -1,0 +1,24 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+
+  .material-icons {
+    padding: 0 2px;
+    font-size: 30px;
+    color: #cbcbcb;
+    cursor: pointer;
+    user-select: none;
+
+    &.hovered {
+      color: #ffa9ac;
+    }
+
+    &.filled {
+      color: $orange-light;
+    }
+  }
+}

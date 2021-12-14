@@ -1,0 +1,40 @@
+<section class="header">
+  <h3 class="title">
+    Peer Reviews
+    <span class="quantity">({{ total$ | async }})</span>
+  </h3>
+
+  <newsreel-simple-sorting-switcher
+  [disabled]="loading$ | async"
+  [sortItems]="sortItems$ | async"
+  (selected)="resetData($event)">
+  </newsreel-simple-sorting-switcher>
+</section>
+
+<section class="main" #main>
+  <div class="review-wrapper" *ngFor="let review of reviews$ | async; trackBy: trackReviews">
+    <newsreel-peer-review
+    [review]="review"
+    [allowReply]="(currentUser$ | async)?.id === user.id && !review.reply"
+    [allowReport]="(currentUser$ | async)?.id !== review.author.id"
+    (vote)="submitVote($event, review.id)"
+    (response)="handleResponse($event, review.id)"
+    (report)="report(review)">
+    </newsreel-peer-review>
+
+    <newsreel-peer-review
+    class="response"
+    *ngIf="review.reply as reply"
+    [isResponse]="true"
+    [review]="reply"
+    [allowReply]="false"
+    [allowReport]="(currentUser$ | async)?.id !== reply.user.id"
+    (vote)="submitVote($event, review.id, true)"
+    (report)="report(review, true)">
+    </newsreel-peer-review>
+  </div>
+
+  <h3 *ngIf="!(reviews$ | async).length && !(loading$ | async)" class="empty">No Reviews Found</h3>
+
+  <newsreel-animated-spinner [showSpinner]="loading$ | async"></newsreel-animated-spinner>
+</section>

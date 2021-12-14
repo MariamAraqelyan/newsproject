@@ -1,0 +1,9 @@
+<span class="info">
+  <span class="material-icons icon">access_time_filled</span>
+  <span class="value">{{ (createdAt | timeAgo) | async }}</span>
+</span>
+
+<span class="info">
+  <img [src]="iconUrl" class="icon" width="15px" height="15px" alt="info icon">
+  <span class="value"> {{ text }}</span>
+</span>

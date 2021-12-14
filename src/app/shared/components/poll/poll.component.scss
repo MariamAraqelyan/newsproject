@@ -1,0 +1,64 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .link-wrapper {
+    color: initial;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .content {
+    padding-bottom: 30px;
+
+    .title {
+      margin: 0;
+      padding: 20px 0;
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    .choice-container {
+      display: grid;
+      grid-gap: 10px;
+
+      .choice {
+        width: 100%;
+        padding: 12px 20px;
+        position: relative;
+        color: $gray-deep;
+        border: 2px solid $gray-deep-70;
+        border-radius: 15px;
+        overflow: hidden;
+
+        &.result {
+          display: flex;
+          justify-content: space-between;
+
+          .text {
+            word-break: break-word;
+            z-index: 10;
+          }
+
+          .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: #f6f6f6;
+          }
+
+          &.active {
+            color: #532bde;
+            border-color: #d5d6f7;
+
+            .background {
+              background-color: #f3f4fd;
+            }
+          }
+        }
+      }
+    }
+  }
+}

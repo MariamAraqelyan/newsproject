@@ -1,0 +1,111 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .header-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-info {
+      font-size: 12px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: center;
+      color: $gray-deep;
+
+      .icon {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      .value {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .comment-content {
+    margin: 20px 0 20px 45px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .comment-text {
+      line-height: 1.5;
+      opacity: .7;
+    }
+
+    .reply-btn {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      cursor: pointer;
+      user-select: none;
+
+      .material-icons {
+        margin-right: 5px;
+        font-size: 20px;
+      }
+    }
+
+    &.desktop-version {
+      margin: 20px 0;
+    }
+  }
+
+  .input-section {
+    margin-top: 15px;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6f6f6;
+    border-radius: 30px;
+
+    .answer-input {
+      height: 100%;
+      padding: 0 5px;
+      font-size: 18px;
+      background-color: inherit;
+      border: 0;
+      outline: 0;
+
+      &::placeholder {
+        opacity: .3;
+      }
+    }
+
+    .post-btn {
+      height: 42px;
+      color: #fff;
+      background-color: $orange-light;
+      border-radius: 30px;
+
+      &:disabled {
+        background-color: $gray-deep-70;
+      }
+    }
+
+    @media (max-width: 1440px) {
+      padding: 5px 10px;
+
+      .answer-input {
+        font-size: 14px;
+      }
+
+      .post-btn {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr 80px;
+    }
+  }
+}

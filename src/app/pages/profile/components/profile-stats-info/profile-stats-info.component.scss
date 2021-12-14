@@ -1,0 +1,77 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  padding: 20px 0;
+  margin: 0 20px;
+  display: block;
+
+  .title {
+    margin: 0;
+    padding: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    opacity: .6;
+  }
+
+  .stats-wrapper {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-gap: 30px;
+
+    .stat-block {
+      width: 120px;
+      display: flex;
+      align-items: center;
+
+      .info {
+        margin-left: 20px;
+        display: flex;
+        flex-flow: column;
+
+        .value {
+          font-weight: bold;
+        }
+
+        .label {
+          font-size: 13px;
+          color: $gray-deep;
+        }
+      }
+    }
+  }
+
+  &.desktop-version {
+    margin: 0;
+    padding: 10px 0;
+    border-top: 1px solid $gray-deep-70;
+
+    .title {
+      text-align: left;
+      font-weight: 500;
+      opacity: 1;
+    }
+
+    .stats-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .comments {
+        order: -1;
+      }
+
+      .stat-block {
+        width: auto;
+
+        .info {
+          .label {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}

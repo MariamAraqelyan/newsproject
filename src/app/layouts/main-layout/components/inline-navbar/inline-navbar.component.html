@@ -1,0 +1,37 @@
+<a
+  class="category active flex-between"
+  routerLinkActive="active" [matMenuTriggerFor]="postFilterMenu">
+  <img src="assets/temp/{{selectedItem?.icon}}.png"/>
+  <span class="current-value">{{selectedItem?.name}}</span>
+  <span class="material-icons">
+    arrow_drop_down
+  </span>
+</a>
+
+<mat-menu #postFilterMenu="matMenu" direction="down" xPosition="before" class="posts-type">
+  <div class="social-icons social-report-panel">
+    <ng-template matMenuContent>
+      <ul class="post-type-list">
+
+        <li *ngFor="let btnType of postTypeList; let i = index"
+            class="neewsreel-feed-btn"
+            type="submit"
+            [ngClass]="{ 'active': i == selectedTypeIndex }"
+            mat-raised-button (click)="changePostType(btnType.type, i)">
+
+          <img src="assets/temp/{{btnType.icon}}.png"/>
+          <span>
+          {{btnType.name}}</span>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</mat-menu>
+
+<a
+  class="category"
+  *ngFor="let category of categories; trackBy: trackCategories"
+  [routerLink]="category.link"
+  routerLinkActive="active">
+  {{ category.label }}
+</a>

@@ -1,0 +1,58 @@
+<mat-tab-group
+*ngIf="isDesktop"
+class="blue-theme desktop-version"
+mat-stretch-tabs
+[selectedIndex]="initialSelectedTab$ | async"
+(selectedIndexChange)="emitUploadTabChange($event === 0 ? 'image' : 'video')">
+  <mat-tab label="Image">
+    <ng-template matTabContent>
+      <newsreel-add-image [isDesktop]="true"></newsreel-add-image>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Video">
+    <ng-template matTabContent>
+      <newsreel-add-video [isDesktop]="true"></newsreel-add-video>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+
+<form class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="articleGroup" (submit)="submit()">
+  <section class="input-wrapper" [ngClass]="{ 'no-toggle': !(showToggle$ | async) }">
+    <mat-form-field class="select" appearance="outline">
+      <mat-label>Category</mat-label>
+
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <input class="title-input" formControlName="title" placeholder="Title...">
+
+    <mat-slide-toggle
+    *ngIf="showToggle$ | async"
+    class="toggle"
+    color="primary"
+    [checked]="showEditor$ | async"
+    (change)="handleToggle($event.checked)">
+      Include Body Text
+    </mat-slide-toggle>
+  </section>
+
+  <newsreel-quill-editor
+  *ngIf="showEditor$ | async"
+  [isExtended]="true"
+  [control]="articleGroup.get('text')"
+  [incomeChanges$]="quilEditorValueSetter$">
+  </newsreel-quill-editor>
+
+  <button
+  type="submit"
+  class="neewsreel-submit-btn"
+  mat-raised-button
+  [disabled]="(disable$ | async) || (loading$ | async)">
+    Edit Article
+  </button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

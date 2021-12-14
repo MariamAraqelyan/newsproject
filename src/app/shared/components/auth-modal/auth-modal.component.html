@@ -1,0 +1,9 @@
+<section [ngSwitch]="step$ | async">
+  <newsreel-sign-in *ngSwitchCase="'sign-in'" class="signin" (linkClick)="handleStepChange($event)" (success)="close()" (close)="close()"></newsreel-sign-in>
+
+  <newsreel-sign-up *ngSwitchCase="'sign-up'" class="signup" (back)="handleStepChange('sign-in')" (success)="handleStepChange('phone-confirm')"></newsreel-sign-up>
+
+  <newsreel-phone-confirm *ngSwitchCase="'phone-confirm'" (back)="handleStepChange('sign-in')" (success)="close()"></newsreel-phone-confirm>
+
+  <newsreel-forgot-password *ngSwitchCase="'forgot-password'" (back)="handleStepChange('sign-in')" (success)="close()"></newsreel-forgot-password>
+</section>

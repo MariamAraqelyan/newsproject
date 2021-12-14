@@ -1,0 +1,35 @@
+<section class="header-info">
+  <newsreel-user-info class="user-info" [user]="comment.author"></newsreel-user-info>
+
+  <span class="info" *ngIf="isDesktop">
+    <span class="material-icons icon">access_time_filled</span>
+    <span class="value">{{ (comment.created_at | timeAgo) | async }}</span>
+  </span>
+</section>
+
+<section class="comment-content" [ngClass]="{ 'desktop-version': isDesktop }">
+  <span class="comment-text">{{ comment.text }}</span>
+
+  <span class="reply-btn" *ngIf="allowReply" (click)="toggleReply()">
+    <ng-container *ngIf="!(showInput$ | async) else close">
+      <span class="material-icons">reply</span> Reply
+    </ng-container>
+
+    <ng-template #close>
+      <span class="material-icons">close</span> Close
+    </ng-template>
+  </span>
+</section>
+
+<section *ngIf="(showInput$ | async) && allowReply" class="input-section">
+  <input class="answer-input" [formControl]="inputControl" placeholder="Write a reply">
+
+  <button
+  class="post-btn"
+  mat-raised-button
+  newsreelAuthCheck
+  (allow)="submitReply()"
+  [disabled]="inputControl.invalid || (loading$ | async)">
+    Post
+  </button>
+</section>

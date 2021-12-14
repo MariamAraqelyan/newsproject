@@ -1,0 +1,43 @@
+<section class="logo-section">
+  <a routerLink="/news" class="logo-link">
+    <div class="logo" title="NEWSREEL">
+      <span class="dot"></span>
+      <b>NEWSREEL</b>
+    </div>
+  </a>
+</section>
+
+<section class="links-section">
+  <a
+  class="link"
+  routerLink="/news"
+  routerLinkActive="active"
+  title="Home Page">
+    <span class="material-icons">home</span>
+    <span class="text">Home</span>
+  </a>
+
+  <ng-container *ngIf="user$ | async else auth">
+    <a class="link" routerLink="/studio" routerLinkActive="active" title="Journalist Studio">
+      <span class="material-icons">mic</span>
+      <span class="text">Create</span>
+    </a>
+
+    <a class="link" [routerLink]="['/profile', (user$ | async).id]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" title="Profile Page">
+      <span class="material-icons">person</span>
+      <span class="text">Profile</span>
+    </a>
+  </ng-container>
+
+  <ng-template #auth>
+    <span class="link" newsreelAuthCheck title="Journalist Studio">
+      <span class="material-icons">mic</span>
+      <span class="text">Create</span>
+    </span>
+
+    <span class="link" newsreelAuthCheck title="Profile Page">
+      <span class="material-icons">person</span>
+      <span class="text">Profile</span>
+    </span>
+  </ng-template>
+</section>

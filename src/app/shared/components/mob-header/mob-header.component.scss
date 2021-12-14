@@ -1,0 +1,105 @@
+@import 'src/app/styles/colors';
+
+.main {
+  width: 100%;
+  min-width: 100%;
+  min-height: 65px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .2);
+
+  .left {
+    position: absolute;
+    left: 10px;
+
+    .back-btn {
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+
+  .avatar-wrapper {
+    min-width: 45px;
+    min-height: 45px;
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      padding: 2px;
+      display: block;
+      border-radius: 50%;
+      border: 2px solid $blue-deep-70;
+      object-fit: cover;
+      overflow: hidden;
+
+      &.material-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+
+        .material-icons {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .logo-link {
+    color: unset;
+    cursor: pointer;
+    text-decoration: none;
+
+    .logo {
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      line-height: 22px;
+      font-size: 26px;
+
+      .dot {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $logo-red;
+      }
+    }
+  }
+
+  .btn-section {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .studio-link {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      color: unset;
+      text-decoration: none;
+    }
+
+    .btn {
+      margin-left: 5px;
+      user-select: none;
+    }
+  }
+
+  &.main-display {
+    background-color: #fff;
+
+    .btn-section {
+      .studio-link {
+        margin: 0;
+      }
+    }
+  }
+}

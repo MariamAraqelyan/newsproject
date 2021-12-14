@@ -1,0 +1,18 @@
+<section class="wrapper" [ngClass]="{ 'mobile-version': isMobile }">
+  <h3 class="title">Related Stories</h3>
+
+  <section class="story-section">
+    <newsreel-related-story
+    class="story"
+    *ngFor="let story of stories$ | async; trackBy: trackStory"
+    [story]="story"
+    [compactMode]="isMobile"
+    (change)="updatePost($event)"
+    (delete)="removePost($event)">
+    </newsreel-related-story>
+
+    <h4 class="empty" *ngIf="!(stories$ | async).length && !(loading$ | async)">No Stories Found</h4>
+
+    <newsreel-animated-spinner [showSpinner]="loading$ | async"></newsreel-animated-spinner>
+  </section>
+</section>

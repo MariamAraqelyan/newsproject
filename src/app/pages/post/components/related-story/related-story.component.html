@@ -1,0 +1,23 @@
+<a class="story-wrapper" [routerLink]="['/post', story.slug]" title="Go to the Post Page">
+  <newsreel-post-header-info [text]="headerText" [createdAt]="story.created_at"></newsreel-post-header-info>
+
+  <article class="story-content">
+    <img class="story-cover" *ngIf="story.image" [src]="story.image" width="100%" height="150px" loading="lazy" alt="Article image">
+
+    <div class="story-thumbnail-wrapper" *ngIf="story.video">
+      <img class="story-cover" [src]="story.thumbnail" width="100%" height="150px" loading="lazy" alt="Article image">
+
+      <img class="story-play-btn" [src]="playBtnUrl" width="50px" height="50px" loading="lazy" alt="Video Play logo">
+    </div>
+
+    <h1 class="story-title">{{ story.title }}</h1>
+  </article>
+</a>
+
+<newsreel-post-author-info
+class="story-user-info"
+[post]="story"
+(vote)="upvote()"
+(report)="report()"
+(delete)="handleDelete()">
+</newsreel-post-author-info>

@@ -1,0 +1,43 @@
+@import 'src/app/styles/quill';
+@import 'src/app/styles/colors';
+
+newsreel-quill-editor {
+  min-height: 182.88px;
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  overflow: hidden;
+  border-radius: 10px;
+
+  .toolbar {
+    border: none !important;
+    background-color: #e8eaef;
+  }
+
+  .editor {
+    border: none !important;
+    background-color: #fff;
+
+    .ql-editor.ql-blank::before {
+      font-style: normal;
+      //font-family: Metropolis;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 20px;
+      color: #B6B6B6;
+    }
+  }
+
+  .editor-err-wrapper {
+    padding: 5px 15px;
+    font-size: 12px;
+    text-align: end;
+    color: $pink-mid;
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 700px) {
+  newsreel-quill-editor {
+    min-height: 144.88px;
+  }
+}

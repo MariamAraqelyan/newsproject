@@ -1,0 +1,25 @@
+<div class="info-wrapper">
+  <a class="avatar-link" [routerLink]="['/profile', user.id]">
+    <img [src]="user.avatar_thumbnail" class="avatar" width="40px" height="40px" alt="Author info"/>
+  </a>
+
+  <section>
+    <div class="author-info">
+      <span class="name">
+        By <a class="name-url" [routerLink]="['/profile', user.id]">{{ user.username }}</a>
+      </span>
+
+      <span class="badge-wrapper" *ngIf="user.is_top_rated">
+        <img src="assets/svg/top-rated.svg" class="badge" height="15px" width="15px" alt="Top rated badge"/>
+        <span class="badge-text">Top Rated</span>
+      </span>
+    </div>
+
+    <div class="meta-info">
+      <newsreel-star-rating class="rating"
+                            [rate]="user.rating"
+                            [quantity]="user.own_reviews"
+                            [isShort]="true" [allowResponsive]="true"></newsreel-star-rating>
+    </div>
+  </section>
+</div>

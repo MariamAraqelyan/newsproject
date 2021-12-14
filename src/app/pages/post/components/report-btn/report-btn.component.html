@@ -1,0 +1,6 @@
+<button class="report-btn" mat-raised-button newsreelAuthCheck (allow)="handleReport()" [disabled]="(loading$ | async) || isReported">
+  <span class="content">
+    <span class="material-icons">error</span>
+    <span>{{ isReported ? 'Reported' : 'Report Fake News' }}</span>
+  </span>
+</button>

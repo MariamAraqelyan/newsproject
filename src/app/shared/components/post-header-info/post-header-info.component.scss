@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+
+    .value {
+      font-size: 13px;
+      opacity: .75;
+    }
+  }
+}

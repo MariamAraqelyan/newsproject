@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+  <div class="info-image">
+    <span (click)="onNoClick()" class="material-icons">close</span>
+    <img src="assets/svg/mobile-module-icon.svg" class="icon" width="60px" height="60px"/>
+    <div class="info-image__right"></div>
+  </div>
+  <div class="info-block">
+    <p class="info-block__title">Invite friends to Newsreel</p>
+    <div class="info-block__text">
+      Help us grow our movement!
+      Click below to open up a text
+      message so you can invite your
+      friends to newsreel!
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <a class="send-sms"
+     href="sms:?&amp;body=Check out this new platform where news is created and rated by the users on the platform called Newsreel https://news-reel2.herokuapp.com/">
+    <img src="assets/svg/mobile-message.svg" width="13px" height="12px">
+    Text Friends Now</a>
+</div>

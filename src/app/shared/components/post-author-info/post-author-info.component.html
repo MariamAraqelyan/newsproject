@@ -1,0 +1,81 @@
+<section class="container">
+  <newsreel-user-info [user]="post.author"></newsreel-user-info>
+
+  <section class="btn-section" *ngIf="showBtnPanel else subscribe">
+    <button
+      class="btn" aria-label="upvote post" title="Upvote"
+      mat-icon-button newsreelAuthCheck (click)="handleVote()">
+      <span class="upvote">
+        <img [src]="post.is_upvoted ? 'assets/svg/megaphone-icon.svg' : 'assets/svg/megaphone-icon-not-active.svg'"
+             width="20px" height="20px" alt="upvote icon">
+        <span class="count">{{ post.upvotes || 0 }}</span>
+      </span>
+    </button>
+
+    <button class="btn no-color" id="open-social-medias" title="Repost" *ngIf="isMobile"
+            aria-label="repost" (click)="repost()">
+      <img src="assets/svg/reply.svg" width="22px" height="22px" alt="repost icon">
+    </button>
+
+    <button class="btn no-color" id="open-social-medias" *ngIf="isDesktop"
+            title="Repost" aria-label="repost"
+            [matMenuTriggerFor]="socialMenu">
+      <img src="assets/svg/reply.svg" width="22px" height="22px" alt="repost icon">
+    </button>
+
+    <button class="btn more" title="Tools"
+            aria-label="open action menu" mat-icon-button [matMenuTriggerFor]="menu">
+      <span class="material-icons">more_vert</span>
+    </button>
+  </section>
+
+  <ng-template #subscribe>
+    <newsreel-subscribe-btn class="subscribe-btn" [journalistId]="post.author.id"></newsreel-subscribe-btn>
+  </ng-template>
+</section>
+
+<mat-menu #socialMenu="matMenu" direction="down" xPosition="before">
+  <div class="social-icons social-report-panel">
+    <ng-template matMenuContent>
+      <newsreel-social-share class="social" [postData]="sharePostData$ | async"
+                             [url]="shareLink$ | async"></newsreel-social-share>
+    </ng-template>
+  </div>
+</mat-menu>
+
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent>
+    <ng-container *ngIf="(user$ | async)?.id === post.author.id else publicBtn">
+      <button class="menu-item" mat-menu-item (click)="handleDelete()">Delete</button>
+
+      <a
+        class="menu-item"
+        mat-menu-item
+        *ngIf="post.type === 'article'"
+        [routerLink]="['/studio/create', post.type, post.id, 'edit']"
+        [state]="{ post: post }">
+        Edit
+      </a>
+
+      <a
+        class="menu-item"
+        mat-menu-item
+        *ngIf="post.type === 'psa'"
+        [routerLink]="['/studio', post.type, post.id, 'edit']"
+        [state]="{ post: post }">
+        Edit
+      </a>
+    </ng-container>
+
+    <ng-template #publicBtn>
+      <button
+        class="menu-item"
+        mat-menu-item
+        newsreelAuthCheck
+        (allow)="handleReport()"
+        [disabled]="post.reported">
+        {{ post.reported ? 'Reported' : 'Report' }}
+      </button>
+    </ng-template>
+  </ng-template>
+</mat-menu>

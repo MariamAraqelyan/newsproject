@@ -1,0 +1,16 @@
+<form class="wrapper" [formGroup]="psaGroup" (submit)="submit()">
+  <mat-form-field class="select" appearance="outline">
+    <mat-label>Category</mat-label>
+
+    <mat-select formControlName="category">
+      <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <newsreel-quill-editor [control]="psaGroup.get('text')"
+                         [charLimit]="150" [incomeChanges$]="quilEditorValueSetter$"></newsreel-quill-editor>
+
+  <button type="submit" class="neewsreel-submit-btn" mat-raised-button [disabled]="(disable$ | async) || (loading$ | async)">Edit PSA</button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

@@ -1,0 +1,110 @@
+@import 'src/app/styles/colors';
+
+newsreel-sign-in {
+  min-height: 100%;
+  display: grid;
+
+  .sign-wrapper {
+    min-height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr auto;
+
+    .main-section {
+      margin: 0 5vw;
+      align-self: center;
+
+      .form-section {
+        width: 100%;
+        margin-top: 40px;
+
+        .inputs-section {
+          display: grid;
+
+          .input-item {
+            display: grid;
+            justify-items: start;
+            grid-gap: 5px;
+          }
+
+          .link {
+            text-decoration: none;
+            font-weight: 500;
+            color: $orange-mid;
+            text-align: end;
+            cursor: pointer;
+          }
+        }
+
+        .btn-section {
+          margin-top: 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .link {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            color: #2f2f2f;
+          }
+        }
+      }
+    }
+
+    .links-section {
+      padding: 25px 0;
+      text-align: center;
+      font-size: 14px;
+      background-color: $gray-light;
+      cursor: default;
+
+      .text {
+        margin-right: 5px;
+      }
+
+      .footer-link {
+        color: $orange-mid;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .desktop-version {
+    justify-items: center;
+    align-items: center;
+    background-color: $gray-light-background;
+
+    .main-section {
+      width: 500px;
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .form-section {
+        .inputs-section {
+          .input-item {
+            .neewsreel-input-wrapper {
+              background-color: #fff;
+            }
+          }
+        }
+
+        .btn-section {
+          justify-content: center;
+        }
+
+        .links-section {
+          margin-top: 30px;
+          font-size: 16px;
+          background-color: inherit;
+
+          .footer-link {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

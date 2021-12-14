@@ -1,0 +1,15 @@
+<!--<nav *ngIf="isMobile else desktop" class="navbar transparent around" mat-tab-nav-bar>-->
+<!--  <a routerLink="article/" mat-tab-link routerLinkActive #rlaArticle="routerLinkActive" [active]="rlaArticle.isActive">Article</a>-->
+<!--  <a routerLink="tweet/" mat-tab-link routerLinkActive #rlaTweet="routerLinkActive" [active]="rlaTweet.isActive">Tweet</a>-->
+<!--</nav>-->
+
+
+
+<ng-template #desktop>
+<!--  <nav class="navbar transparent underline desktop-version" mat-tab-nav-bar mat-stretch-tabs>-->
+<!--    <a routerLink="article/" mat-tab-link routerLinkActive #rlaArticle="routerLinkActive" [active]="rlaArticle.isActive">Article</a>-->
+<!--    <a routerLink="tweet/" mat-tab-link routerLinkActive #rlaTweet="routerLinkActive" [active]="rlaTweet.isActive">Tweet</a>-->
+<!--  </nav>-->
+</ng-template>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,57 @@
+<header class="main" [ngClass]="{ 'main-display': isMainDisplay }">
+  <section class="left">
+    <ng-container *ngIf="isMainDisplay">
+      <ng-container *ngTemplateOutlet="avatar"></ng-container>
+    </ng-container>
+
+    <span *ngIf="!isMainDisplay" class="material-icons back-btn" title="Go Back" (click)="handleBackBtnClick()">arrow_back</span>
+  </section>
+
+  <section>
+    <a routerLink="/" class="logo-link">
+      <div class="logo" title="NEWSREEL">
+        <span class="dot"></span>
+        <b>NEWSREEL</b>
+      </div>
+    </a>
+  </section>
+
+  <section class="btn-section">
+    <ng-container *ngIf="showBtnSection">
+      <a class="studio-link" routerLink="/studio"
+         *neewsreelAllowForRoles="[ Roles.Admin, Roles.Journalist ]" title="Journalist Studio">
+        <img class="btn" src="assets/svg/micro.svg" width="25px" height="24px" alt="mic btn">
+      </a>
+
+      <a class="studio-link" *neewsreelAllowForRoles="[ Roles.Guest ]"  newsreelAuthCheck title="Journalist Studio">
+        <img class="btn" src="assets/svg/micro.svg" width="25px" height="24px" alt="mic btn">
+      </a>
+
+      <img
+      *ngIf="isMainDisplay"
+      class="btn"
+      src="assets/svg/more-btn.svg"
+      title="Show legal pages links"
+      width="25px"
+      height="28px"
+      (click)="openTermsWidget()"
+      alt="more menu btn">
+
+      <ng-container *ngIf="!isMainDisplay">
+        <ng-container *ngTemplateOutlet="avatar"></ng-container>
+      </ng-container>
+    </ng-container>
+  </section>
+</header>
+
+<ng-template #avatar>
+  <section class="avatar-wrapper">
+    <a [routerLink]="['/profile', (user$ | async)?.id]" *neewsreelAllowForRoles="[ Roles.Admin, Roles.Journalist ]" title="Profile Page">
+      <img class="avatar" [src]="(user$ | async)?.avatar_thumbnail" width="45px" height="45px" alt="Avatar Photo">
+    </a>
+
+    <div class="avatar material-avatar" *neewsreelAllowForRoles="[ Roles.Guest ]" newsreelAuthCheck>
+      <span class="material-icons">person</span>
+    </div>
+  </section>
+</ng-template>

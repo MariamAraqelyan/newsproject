@@ -1,0 +1,38 @@
+<form class="wrapper" [formGroup]="psaGroup" (submit)="submit()">
+
+  <div class="relative-form-field">
+    <label class="form-field-label-name">Select Post Type</label>
+
+    <mat-form-field class="select" appearance="outline">
+<!--      <mat-label>Select Post Type</mat-label>-->
+
+      <mat-select [(value)]="postTypeList[0]"
+        (selectionChange)="changePostType($event.value)">
+        <mat-option *ngFor="let category of postTypeList"
+                    [value]="category">{{ category.name }}</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+  </div>
+
+  <div class="relative-form-field">
+    <label class="form-field-label-name">Choose category</label>
+    <mat-form-field class="select" appearance="outline">
+      <mat-label class="select-new-label" *ngIf="psaGroup.get('category').value == ''">Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="relative-form-field">
+      <label class="form-field-label-name">Body Text</label>
+
+      <newsreel-quill-editor [control]="psaGroup.get('text')" [textControl]="psaGroup.get('description')" [charLimit]="150"></newsreel-quill-editor>
+  </div>
+
+  <button type="submit" class="neewsreel-submit-btn" mat-raised-button [disabled]="(disable$ | async) || (loading$ | async)">Publish</button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

@@ -1,0 +1,32 @@
+<label for="{{ ID }}">
+  <section class="upload-section" (drop)="handleDrop($event)" (dragover)="$event.preventDefault()">
+      <section class="drop-wrapper">
+        <div class="drop-area" *ngIf="((files$ | async)[0]?.imageUrl || imageUrl) as url; else defaultIcon">
+          <img
+          src="{{ url }}"
+          class="preview-img"
+          title="Loaded image preview"
+          [attr.width]="size"
+          [attr.height]="size"
+          alt="Loaded image preview">
+        </div>
+
+        <ng-template #defaultIcon>
+          <div class="drop-area">
+               <span class="image-upload-section">
+                 <img src="/assets/temp/upload-image.png">
+                 <span *ngIf="title" class="title">{{ title }}</span>
+               </span>
+          </div>
+        </ng-template>
+      </section>
+
+    <input
+      type="file"
+      id="{{ ID }}"
+      multiple="{{ multiple }}"
+      accept="{{ acceptedTypes }}"
+      (change)="processFiles($event.target.files)">
+  </section>
+
+</label>

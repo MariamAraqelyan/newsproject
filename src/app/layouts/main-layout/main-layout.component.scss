@@ -1,0 +1,59 @@
+@import 'src/app/styles/colors';
+
+.wrapper {
+  min-height: -webkit-fill-available;
+  max-height: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: visible;
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #fff;
+  }
+
+  .main-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65px;
+    bottom: 0;
+
+    .content {
+      height: 100%;
+      max-height: 100%;
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: 0 1fr;
+      overflow: auto;
+    }
+  }
+
+  &.main-display {
+    .main-wrapper {
+      top: 132px;
+    }
+  }
+
+  &.desktop-layout {
+    .main-wrapper {
+      top: 48px;
+      background-color: $gray-light-background;
+
+      .sidebar {
+        padding: 15px 5px 0;
+        position: absolute;
+        left: calc(15% - 10px);
+      }
+
+      .content {
+        min-width: 450px;
+        margin-left: calc(50% - 310px);
+      }
+    }
+  }
+}

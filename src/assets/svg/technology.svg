@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25">
+  <g id="Group_63075" data-name="Group 63075" transform="translate(-433 -554)">
+    <g id="cpu" transform="translate(433 555)">
+      <g id="Group_63037" data-name="Group 63037" transform="translate(0)">
+        <path id="Conture_16658" data-name="Conture 16658" d="M139.43,0a.353.353,0,0,0-.353.353V3.367a.353.353,0,1,0,.706,0V.353A.353.353,0,0,0,139.43,0Z" transform="translate(-132.558)" fill="#96c8ef"/>
+        <path id="Conture_16659" data-name="Conture 16659" d="M194.124,0a.353.353,0,0,0-.353.353V3.367a.353.353,0,1,0,.706,0V.353A.353.353,0,0,0,194.124,0Z" transform="translate(-184.688)" fill="#96c8ef"/>
+        <path id="Conture_16660" data-name="Conture 16660" d="M248.817,0a.353.353,0,0,0-.353.353V3.367a.353.353,0,0,0,.707,0V.353A.353.353,0,0,0,248.817,0Z" transform="translate(-236.817)" fill="#96c8ef"/>
+        <path id="Conture_16661" data-name="Conture 16661" d="M303.51,0a.353.353,0,0,0-.353.353V3.367a.353.353,0,0,0,.707,0V.353A.353.353,0,0,0,303.51,0Z" transform="translate(-288.947)" fill="#96c8ef"/>
+        <path id="Conture_16662" data-name="Conture 16662" d="M358.2,0a.353.353,0,0,0-.353.353V3.367a.353.353,0,0,0,.707,0V.353A.353.353,0,0,0,358.2,0Z" transform="translate(-341.077)" fill="#96c8ef"/>
+        <path id="Conture_16663" data-name="Conture 16663" d="M139.43,432.628a.353.353,0,0,0-.353.353V436a.353.353,0,0,0,.706,0v-3.014A.353.353,0,0,0,139.43,432.628Z" transform="translate(-132.558 -412.349)" fill="#96c8ef"/>
+        <path id="Conture_16664" data-name="Conture 16664" d="M194.124,432.628a.353.353,0,0,0-.353.353V436a.353.353,0,0,0,.706,0v-3.014A.353.353,0,0,0,194.124,432.628Z" transform="translate(-184.688 -412.349)" fill="#96c8ef"/>
+        <path id="Conture_16665" data-name="Conture 16665" d="M248.817,432.628a.353.353,0,0,0-.353.353V436a.353.353,0,0,0,.707,0v-3.014A.353.353,0,0,0,248.817,432.628Z" transform="translate(-236.817 -412.349)" fill="#96c8ef"/>
+        <path id="Conture_16666" data-name="Conture 16666" d="M303.51,432.628a.353.353,0,0,0-.353.353V436a.353.353,0,0,0,.707,0v-3.014A.353.353,0,0,0,303.51,432.628Z" transform="translate(-288.947 -412.349)" fill="#96c8ef"/>
+        <path id="Conture_16667" data-name="Conture 16667" d="M358.2,432.628a.353.353,0,0,0-.353.353V436a.353.353,0,0,0,.707,0v-3.014A.353.353,0,0,0,358.2,432.628Z" transform="translate(-341.077 -412.349)" fill="#96c8ef"/>
+        <path id="Conture_16668" data-name="Conture 16668" d="M432.981,139.784H436a.353.353,0,0,0,0-.706h-3.014a.353.353,0,0,0,0,.706Z" transform="translate(-412.349 -132.558)" fill="#96c8ef"/>
+        <path id="Conture_16669" data-name="Conture 16669" d="M436,193.771h-3.014a.353.353,0,0,0,0,.707H436a.353.353,0,0,0,0-.707Z" transform="translate(-412.349 -184.688)" fill="#96c8ef"/>
+        <path id="Conture_16670" data-name="Conture 16670" d="M436,248.464h-3.014a.353.353,0,0,0,0,.707H436a.353.353,0,0,0,0-.707Z" transform="translate(-412.349 -236.817)" fill="#96c8ef"/>
+        <path id="Conture_16671" data-name="Conture 16671" d="M436,303.157h-3.014a.353.353,0,0,0,0,.707H436a.353.353,0,0,0,0-.707Z" transform="translate(-412.349 -288.947)" fill="#96c8ef"/>
+        <path id="Conture_16672" data-name="Conture 16672" d="M436,357.851h-3.014a.353.353,0,0,0,0,.707H436a.353.353,0,0,0,0-.707Z" transform="translate(-412.349 -341.077)" fill="#96c8ef"/>
+        <path id="Conture_16673" data-name="Conture 16673" d="M3.367,139.077H.353a.353.353,0,1,0,0,.706H3.367a.353.353,0,1,0,0-.706Z" transform="translate(0 -132.558)" fill="#96c8ef"/>
+        <path id="Conture_16674" data-name="Conture 16674" d="M3.367,193.771H.353a.353.353,0,0,0,0,.707H3.367a.353.353,0,0,0,0-.707Z" transform="translate(0 -184.688)" fill="#96c8ef"/><path id="Conture_16675" data-name="Conture 16675" d="M3.367,248.464H.353a.353.353,0,0,0,0,.707H3.367a.353.353,0,0,0,0-.707Z" transform="translate(0 -236.817)" fill="#96c8ef"/>
+        <path id="Conture_16676" data-name="Conture 16676" d="M3.367,303.157H.353a.353.353,0,0,0,0,.707H3.367a.353.353,0,0,0,0-.707Z" transform="translate(0 -288.947)" fill="#96c8ef"/>
+        <path id="Conture_16677" data-name="Conture 16677" d="M3.367,357.851H.353a.353.353,0,0,0,0,.707H3.367a.353.353,0,0,0,0-.707Z" transform="translate(0 -341.077)" fill="#96c8ef"/>
+      </g>
+      <path id="Conture_16678" data-name="Conture 16678" d="M83.228,65.038V80.421a1.245,1.245,0,0,1-1.245,1.245H66.6a1.245,1.245,0,0,1-1.245-1.245V65.038A1.245,1.245,0,0,1,66.6,63.793H81.983A1.245,1.245,0,0,1,83.228,65.038Z" transform="translate(-62.291 -60.803)" fill="#5aaae7"/>
+      <path id="Conture_16679" data-name="Conture 16679" d="M104.961,90.425v13.448a1.089,1.089,0,0,1-1.089,1.089H90.425a1.089,1.089,0,0,1-1.089-1.089V90.425a1.089,1.089,0,0,1,1.089-1.089h13.448A1.089,1.089,0,0,1,104.961,90.425Z" transform="translate(-85.148 -85.148)" fill="#1e81ce"/>
+      <path id="Conture_16680" data-name="Conture 16680" d="M148.375,136.45v9.583a.776.776,0,0,1-.776.776h-9.582a.776.776,0,0,1-.776-.776V136.45a.775.775,0,0,1,.776-.776H147.6A.776.776,0,0,1,148.375,136.45Z" transform="translate(-130.808 -129.314)" fill="#96c8ef"/>
+      <path id="Conture_16681" data-name="Conture 16681" d="M172.8,136.45v9.583a.776.776,0,0,1-.776.776H163.64a.776.776,0,0,1-.776-.776V136.45a.775.775,0,0,1,.776-.776h8.381A.776.776,0,0,1,172.8,136.45Z" transform="translate(-155.23 -129.314)" fill="#c2dff6"/>
+      <g id="Group_63038" data-name="Group 63038" transform="translate(6.433 6.36)">
+        <rect id="rect_267" data-name="rect 267" width="2.966" height="0.706" transform="translate(0 1.771)" fill="#787680"/>
+        <rect id="rect_268" data-name="rect 268" width="0.706" height="5.593" transform="translate(8.083)" fill="#787680"/>
+        <rect id="rect_269" data-name="rect 269" width="0.706" height="2.527" transform="translate(2.271 8.607)" fill="#787680"/>
+        <path id="Conture_16682" data-name="Conture 16682" d="M219.38,198.849v.707H214.2v1.881H213.5v-5.1h-1.405a.353.353,0,0,1-.353-.353v-2.637a.353.353,0,1,1,.706,0v2.284h3.016a.353.353,0,1,1,0,.706H214.2v2.517h5.177Z" transform="translate(-208.246 -190.302)" fill="#787680"/>
+      </g>
+      <g id="Group_63039" data-name="Group 63039" transform="translate(8.032 7.385)">
+        <path id="Conture_16683" data-name="Conture 16683" d="M199.6,158.648a1.1,1.1,0,1,1-.682-1.017A1.1,1.1,0,0,1,199.6,158.648Z" transform="translate(-196.178 -157.549)" fill="#2d2d30"/>
+        <path id="Conture_16684" data-name="Conture 16684" d="M173.405,285.933A1.025,1.025,0,1,1,172.8,285,1.026,1.026,0,0,1,173.405,285.933Z" transform="translate(-171.354 -278.938)" fill="#2d2d30"/>
+        <path id="Conture_16685" data-name="Conture 16685" d="M291.716,229.968a1.319,1.319,0,1,1-1.318-1.319,1.3,1.3,0,0,1,.416.067A1.319,1.319,0,0,1,291.716,229.968Z" transform="translate(-283.561 -225.316)" fill="#2d2d30"/>
+      </g>
+      <g id="Group_63040" data-name="Group 63040" transform="translate(8.865 7.467)">
+        <path id="Conture_16686" data-name="Conture 16686" d="M216.519,160.314a.738.738,0,1,1-.682-1.017A1.1,1.1,0,0,1,216.519,160.314Z" transform="translate(-213.933 -159.297)" fill="#3e3d42"/>
+        <path id="Conture_16687" data-name="Conture 16687" d="M190.329,287.724a.667.667,0,1,1-.609-.937A1.026,1.026,0,0,1,190.329,287.724Z" transform="translate(-189.11 -280.811)" fill="#3e3d42"/>
+        <path id="Conture_16688" data-name="Conture 16688" d="M308.639,231.337a.951.951,0,1,1-.9-1.251A1.318,1.318,0,0,1,308.639,231.337Z" transform="translate(-301.316 -226.768)" fill="#3e3d42"/>
+      </g>
+    </g>
+  </g>
+</svg>

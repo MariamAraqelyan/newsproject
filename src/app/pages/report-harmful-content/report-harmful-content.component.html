@@ -1,0 +1,29 @@
+<section class="header" *ngIf="isMobile">
+  <a routerLink="/" class="back-btn">
+    <span class="material-icons">keyboard_arrow_left</span>
+  </a>
+
+  <h4>Report Harmful Or Plagiarized Content</h4>
+</section>
+
+<newsreel-desktop-header *ngIf="isDesktop"></newsreel-desktop-header>
+
+<main class="main-content" [ngClass]="{ 'desktop-version': isDesktop }">
+  <newsreel-legal-page-navbar *ngIf="isDesktop" class="navbar"></newsreel-legal-page-navbar>
+
+  <h1 class="title">Report Harmful Or Plagiarized Content</h1>
+
+  <mat-card class="wrapper">
+    <p>Newsreel deals with copyright infringement on the Newsreel in accordance with the Digital Millennium Copyright Act.</p>
+    <p>If you believe that Content residing or accessible on the Newsreel infringes a copyright, please send a notice of copyright infringement containing the following information to info@Newsreel.io</p>
+
+    <ul>
+      <li>Identification of the work or material being infringed.</li>
+      <li>Identification of the material that is claimed to be infringing, including its location, with sufficient detail so that Medium is capable of finding it and verifying its existence.</li>
+      <li>Contact information for the notifying party, including name, address, telephone number and e-mail address.</li>
+      <li>A statement that the notifying party has a good faith belief that the material is not authorized by the copyright owner, its agent or law.</li>
+      <li>A statement made under penalty of perjury that the information provided in the notice is accurate and that the notifying party is authorized to make the complaint on behalf of the copyright owner.</li>
+      <li>A physical or electronic signature of a person authorized to act on behalf of the owner of the copyright that has been allegedly infringed.</li>
+    </ul>
+  </mat-card>
+</main>

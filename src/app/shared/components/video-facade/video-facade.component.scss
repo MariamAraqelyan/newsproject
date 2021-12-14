@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  position: relative;
+
+  .story-play-btn {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    opacity: .9;
+  }
+
+  .story-cover {
+    min-height: 120px;
+    object-fit: cover;
+  }
+}

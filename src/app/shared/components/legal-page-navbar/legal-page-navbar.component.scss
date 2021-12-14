@@ -1,0 +1,27 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .links-section {
+    padding: 0 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 40px;
+
+    .link {
+      padding: 20px;
+      color: $gray-deep;
+      text-decoration: none;
+
+      &.active {
+        padding-bottom: 17px;
+        font-weight: 500;
+        border-bottom: 3px solid $orange-light;
+      }
+    }
+  }
+}

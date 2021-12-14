@@ -1,0 +1,34 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .report-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    color: #fff;
+    background-color: $orange-light;
+
+    &:disabled {
+      color: $gray-deep;
+      background-color: $gray-deep-50;
+      border: none;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .material-icons {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    }
+  }
+}

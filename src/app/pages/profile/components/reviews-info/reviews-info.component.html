@@ -1,0 +1,10 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <h1 class="title">Peer Ratings</h1>
+
+  <section class="rating-wrapper">
+    <div class="rating-field" *ngFor="let rate of rateList; trackBy: trackField;">
+      <span class="name">{{ rate.label }}</span>
+      <newsreel-star-rating class="value" [rate]="rate.value" [showRateLast]="true" [allowResponsive]="true"></newsreel-star-rating>
+    </div>
+  </section>
+</section>

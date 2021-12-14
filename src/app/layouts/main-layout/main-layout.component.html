@@ -1,0 +1,17 @@
+<section class="wrapper" [ngClass]="{ 'desktop-layout': isDesktop, 'main-display': isMainDisplay$ | async }">
+  <section class="header">
+    <newsreel-mob-header *ngIf="isMobile" [isMainDisplay]="isMainDisplay$ | async" (back)="handleBack()"></newsreel-mob-header>
+
+    <newsreel-desktop-header *ngIf="isDesktop"></newsreel-desktop-header>
+
+    <newsreel-inline-navbar class="inline-navbar" *ngIf="isMobile && (isMainDisplay$ | async)" [categories]="categories"></newsreel-inline-navbar>
+  </section>
+
+  <section class="main-wrapper">
+    <newsreel-aside-navbar *ngIf="isDesktop" [categories]="categories" class="sidebar"></newsreel-aside-navbar>
+
+    <main class="content" #main>
+      <router-outlet></router-outlet>
+    </main>
+  </section>
+</section>

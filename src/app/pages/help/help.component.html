@@ -1,0 +1,25 @@
+<section class="header" *ngIf="isMobile">
+  <a routerLink="/" class="back-btn">
+    <span class="material-icons">keyboard_arrow_left</span>
+  </a>
+
+  <h4>Help</h4>
+</section>
+
+<newsreel-desktop-header *ngIf="isDesktop"></newsreel-desktop-header>
+
+<main class="main-content" [ngClass]="{ 'desktop-version': isDesktop }">
+  <newsreel-legal-page-navbar *ngIf="isDesktop" class="navbar"></newsreel-legal-page-navbar>
+
+  <h1 class="title">Help</h1>
+
+  <mat-card class="wrapper">
+    <h5>Support and Feature Requests</h5>
+    <p>
+      If you need support or have a suggestion for how to improve the Newsreel, your input is always welcome.
+      Please submit your request per e-mail using info@Newsreel.io. Unless additional information is needed, you will not receive a personal response.
+      Any suggestions for enhancements to the Newsreel you submit will become the property of Newsreel.
+      Newsreel may use this information for any business purposes, without restriction, including for support and development.
+    </p>
+  </mat-card>
+</main>

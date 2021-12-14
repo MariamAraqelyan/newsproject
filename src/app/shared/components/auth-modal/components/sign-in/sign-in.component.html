@@ -1,0 +1,63 @@
+<section class="header">
+  <span class="material-icons" (click)="emitClose()">close</span>
+</section>
+
+<section class="main-section">
+  <a routerLink="/" class="logo-link">
+    <div class="logo" title="NEWSREEL">
+      <span class="dot"></span>
+      <b>NEWSREEL</b>
+    </div>
+  </a>
+
+  <form class="form-section" [formGroup]="credentials" (submit)="submit()">
+    <section class="inputs-section">
+
+      <label class="phone-number-wrapper">
+          <span class="label">
+              Phone Number
+          </span>
+
+        <div class="phone-number-controller custom-phoneNumber__section">
+          <input type="text"
+                 ng2TelInput
+                 [ng2TelInputOptions]="{initialCountry: 'us'}"
+                 (ng2TelOutput)="getNumber($event)"
+                 formControlName="intl_phone_number"
+                 (countryChange)="onCountryChange($event)" />
+        </div>
+
+      </label>
+
+      <newsreel-text-input
+        class="input-item"
+        type="password"
+        icon="lock"
+        label="Password"
+        [control]="credentials.get('password')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+      </newsreel-text-input>
+
+      <a class="link" (click)="emitLinkChange('forgot-password')">Forgot password?</a>
+    </section>
+
+    <section class="btn-section">
+      <button
+        class="neewsreel-submit-btn"
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="loading$ | async">
+        Log In
+      </button>
+    </section>
+  </form>
+</section>
+
+<section class="links-section">
+  <span class="text">Don't have an account?</span>
+  <a class="footer-link" (click)="emitLinkChange('sign-up')">Sign up</a>
+</section>
+
+<newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>

@@ -1,0 +1,9 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <h3 class="title" *ngIf="!isDesktop">{{ text }}</h3>
+
+  <newsreel-file-uploader class="uploader" title="Upload image" [imageUrl]="imageUrl$ | async" (loaded)="handleLoad($event)"></newsreel-file-uploader>
+
+  <span class="error-msg">{{ imageMsg$ | async }}</span>
+
+<!--  <img *ngIf="isDesktop" src="/assets/svg/file-upload.svg" class="upload-icon" width="30px" height="30px">-->
+</section>

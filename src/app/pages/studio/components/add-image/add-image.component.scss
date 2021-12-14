@@ -1,0 +1,59 @@
+@import 'src/app/styles/colors';
+
+newsreel-add-image {
+  display: block;
+
+  .wrapper {
+    display: grid;
+    padding: 30px 0;
+    text-align: center;
+
+    .title {
+      margin: 0 0 30px 0;
+      font-weight: 500;
+      color: $blue-extra-deep;
+    }
+
+    .error-msg {
+      display: block;
+      min-height: 15px;
+      font-size: 12px;
+      font-weight: 500;
+      color: $pink-mid;
+    }
+
+    &.desktop-version {
+      margin-top: 20px;
+      padding: 0;
+      position: relative;
+      border-radius: 15px;
+      background-color: #fff;
+      border: 2px dashed $gray-deep;
+
+      .error-msg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(50% + 65px);
+        color: $gray-deep;
+      }
+
+      .uploader {
+        .upload-section {
+          //padding: 89px 30px;
+          padding: 28px 30px;
+          cursor: pointer;
+        }
+      }
+
+      .upload-icon {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .2);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+    }
+  }
+}

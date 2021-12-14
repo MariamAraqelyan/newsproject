@@ -1,0 +1,65 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn-section {
+      min-width: 30%;
+      display: grid;
+      justify-items: end;
+      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 8%;
+      color: $gray-deep;
+
+      .btn {
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: initial;
+
+        .upvote {
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: center;
+          line-height: 20px;
+
+          .count {
+            font-size: 14px;
+          }
+        }
+
+        &.more {
+          max-width: 20px;
+
+          .material-icons {
+            font-size: 38px;
+          }
+        }
+      }
+    }
+
+    .subscribe-btn {
+      width: 33%;
+    }
+  }
+}
+
+::ng-deep.mat-dialog-container {
+  newsreel-social-share {
+    flex-direction: column;
+  }
+}
+
+.no-color {
+  background: transparent;
+  border: none;
+}

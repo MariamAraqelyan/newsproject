@@ -1,0 +1,18 @@
+<form class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="video">
+  <div class="input-wrapper">
+    <span class="label">Video Type</span>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Select Youtube / Vimeo</mat-label>
+
+      <mat-select class="select" formControlName="type">
+        <mat-option *ngFor="let type of videoTypes" [value]="type.value">{{ type.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="input-wrapper">
+    <span class="label">Video Embeded URL</span>
+    <input class="url" formControlName="url" placeholder="Type in embeded URL">
+  </div>
+</form>

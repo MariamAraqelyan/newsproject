@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="rect_62" data-name="rect 62" width="18" height="18" fill="#3f3e48"/>
+    </clipPath>
+  </defs>
+  <g id="Group_163" data-name="Group 163" transform="translate(-219 -589)">
+    <g id="Group_153" data-name="Group 153" transform="translate(150 395.11)">
+      <g id="Group_154" data-name="Group 154" transform="translate(69 193.89)">
+        <g id="Group_153-2" data-name="Group 153" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <path id="Conture_82" data-name="Conture 82" d="M78.2,193.889a8.886,8.886,0,1,0,6.27,2.6,8.867,8.867,0,0,0-6.27-2.6ZM73.4,209.269V208.5a4.793,4.793,0,0,1,9.587,0v.767a8.072,8.072,0,0,1-9.587,0Zm10.365-.652V208.5a5.571,5.571,0,0,0-11.143,0v.115a8.09,8.09,0,1,1,11.142,0Zm0,0" transform="translate(-69.316 -193.889)" fill="#3f3e48"/>
+        </g>
+      </g>
+      <path id="Conture_83" data-name="Conture 83" d="M223.374,260.988a3.007,3.007,0,1,0,3.007,3.007,3.007,3.007,0,0,0-3.007-3.007Zm0,5.236a2.229,2.229,0,1,1,2.229-2.229,2.229,2.229,0,0,1-2.229,2.229Zm0,0" transform="translate(-145.476 -64.487)" fill="#3f3e48"/>
+    </g>
+  </g>
+</svg>

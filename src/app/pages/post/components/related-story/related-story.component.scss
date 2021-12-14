@@ -1,0 +1,60 @@
+newsreel-related-story {
+  padding: 15px;
+  display: block;
+  background-color: #fff;
+  border-radius: 10px;
+
+  .story-wrapper {
+    color: initial;
+    outline: none;
+    text-decoration: none;
+
+    .story-content {
+      padding: 15px 0;
+
+      .story-title {
+        margin: 8px 0 0 0;
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      .story-cover {
+        min-height: 120px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      .story-thumbnail-wrapper {
+        position: relative;
+
+        .story-play-btn {
+          position: absolute;
+          top: calc(50% - 25px);
+          left: calc(50% - 25px);
+          opacity: .9;
+        }
+      }
+    }
+  }
+
+  .story-user-info {
+    font-size: 12px;
+
+    .container {
+      newsreel-user-info {
+        .avatar-link .avatar {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .btn-section {
+        grid-gap: 15% !important;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    padding: 15px 8px;
+  }
+}

@@ -1,0 +1,16 @@
+<!--<nav *ngIf="isMobile else desktop" class="navbar transparent between" mat-tab-nav-bar>-->
+<!--  <a routerLink="article/" mat-tab-link routerLinkActive #rlaArticle="routerLinkActive" [active]="rlaArticle.isActive">Article</a>-->
+<!--  <a routerLink="meme/" mat-tab-link routerLinkActive #rlaMeme="routerLinkActive" [active]="rlaMeme.isActive">Meme</a>-->
+<!--  <a routerLink="poll/" mat-tab-link routerLinkActive #rlaPoll="routerLinkActive" [active]="rlaPoll.isActive">Poll</a>-->
+<!--</nav>-->
+
+
+<ng-template #desktop>
+<!--  <nav class="navbar transparent underline desktop-version" mat-tab-nav-bar mat-stretch-tabs>-->
+<!--    <a routerLink="article/" mat-tab-link routerLinkActive #rlaArticle="routerLinkActive" [active]="rlaArticle.isActive">Article</a>-->
+<!--    <a routerLink="meme/" mat-tab-link routerLinkActive #rlaMeme="routerLinkActive" [active]="rlaMeme.isActive">Meme</a>-->
+<!--    <a routerLink="poll/" mat-tab-link routerLinkActive #rlaPoll="routerLinkActive" [active]="rlaPoll.isActive">Poll</a>-->
+<!--  </nav>-->
+</ng-template>
+
+<router-outlet></router-outlet>

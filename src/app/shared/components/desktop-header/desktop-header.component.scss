@@ -1,0 +1,64 @@
+@import 'src/app/styles/colors';
+
+:host {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e4e4e4;
+
+  .logo-section {
+    position: absolute;
+    left: 15%;
+
+    .logo-link {
+      color: unset;
+      cursor: pointer;
+      text-decoration: none;
+
+      .logo {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        line-height: 20px;
+        font-size: 24px;
+
+        .dot {
+          margin-right: 5px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background-color: $logo-red;
+        }
+      }
+    }
+  }
+
+  .links-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .link {
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: $gray-deep;
+      cursor: pointer;
+      outline: none;
+
+      .material-icons {
+        margin-right: 10px;
+      }
+
+      &.active {
+        padding-bottom: 9px;
+        font-weight: 500;
+        color: $orange-light;
+        border-bottom: 3px solid $orange-light;
+      }
+    }
+  }
+}

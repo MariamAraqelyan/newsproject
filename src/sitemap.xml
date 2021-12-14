@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/trending</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/politics</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/celebrity</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/business</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/influencer</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/health</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/music</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/sports</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/gaming</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://newsreelui.herokuapp.com/news/technology</loc>
+    <lastmod>2021-03-11</lastmod>
+     <priority>1</priority>
+  </url>
+
+</urlset>

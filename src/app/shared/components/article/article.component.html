@@ -1,0 +1,81 @@
+<a class="wrapper" [routerLink]="['/post', article.slug]" [state]="{ post: article }" title="Go to the Post Page">
+  <!-- TODO: use pipe for text - 1000 -> 1k -->
+  <newsreel-post-header-info [text]="article.comments + ' comments'" [createdAt]="article.created_at"></newsreel-post-header-info>
+
+  <article class="content">
+    <h1 class="title">{{ article.title }}</h1>
+
+    <img
+    class="cover"
+    *ngIf="article.image"
+    [src]="article.image"
+    [attr.height]="readMode ? '300px' : '100%'"
+    width="100%"
+    loading="lazy"
+    alt="Article image">
+
+    <ng-container *ngIf="article.video">
+      <ng-container *ngIf="isYoutube$ | async else vimeo">
+        <newsreel-video-facade
+        *ngIf="readMode && (showFacade$ | async) else youtubeVideo"
+        [image]="article.thumbnail"
+        (click)="removeFacade($event)">
+        </newsreel-video-facade>
+
+        <ng-template #youtubeVideo>
+          <div class="iframe-container">
+            <iframe
+            class="iframe-el"
+            width="100%"
+            height="315"
+            loading="lazy"
+            [src]="url$ | async"
+            frameborder="0"
+            allowfullscreen
+            autoplay
+            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;">
+            </iframe>
+          </div>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #vimeo>
+        <newsreel-video-facade
+        *ngIf="readMode && (showFacade$ | async) else vimeoVideo"
+        [image]="article.thumbnail"
+        [isYoutube]="false"
+        (click)="removeFacade($event)">
+        </newsreel-video-facade>
+
+        <ng-template #vimeoVideo>
+          <div class="vimeo-container iframe-container">
+            <iframe
+            class="vimeo-iframe iframe-el"
+            [src]="url$ | async"
+            width="100%"
+            height="100%"
+            allow="autoplay; fullscreen; picture-in-picture"
+            frameborder="0"
+            allowfullscreen>
+            </iframe>
+          </div>
+        </ng-template>
+
+      </ng-template>
+    </ng-container>
+  </article>
+</a>
+
+<newsreel-post-author-info
+[post]="article"
+[showBtnPanel]="showFooterBtnPanel"
+(vote)="upvote()"
+(report)="report()"
+(delete)="handleDelete()">
+</newsreel-post-author-info>
+
+<article
+class="article-content newsreel-article-content"
+*ngIf="(content$ | async) && !readMode"
+[innerHTML]="content$ | async">
+</article>

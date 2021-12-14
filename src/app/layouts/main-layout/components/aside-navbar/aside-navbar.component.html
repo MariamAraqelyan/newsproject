@@ -1,0 +1,48 @@
+<aside class="wrapper">
+  <nav class="news-links">
+    <a
+    class="category"
+    *ngFor="let category of categories; trackBy: trackCategories"
+    [routerLink]="category.link"
+    routerLinkActive="active">
+      <img class="icon" src="assets/svg/{{ category.label.toLowerCase() }}.svg" width="30px" height="26px" alt="{{ category.label }} icon"/>
+      <span class="text">{{ category.label }}</span>
+    </a>
+  </nav>
+
+  <button class="settings" mat-stroked-button [matMenuTriggerFor]="menu">
+    <span class="material-icons">settings</span>
+    <span>Settings</span>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <ng-template matMenuContent>
+      <ng-container *neewsreelAllowForRoles="[Roles.Guest]">
+        <a class="menu-item" routerLink="/sign-in" mat-menu-item>Sign In</a>
+        <a class="menu-item" routerLink="/sign-up" mat-menu-item>Sign Up</a>
+      </ng-container>
+
+      <button class="menu-item" mat-menu-item *neewsreelAllowForRoles="[Roles.Admin, Roles.Journalist]" (click)="logout()">Logout</button>
+    </ng-template>
+  </mat-menu>
+
+  <section class="legal-wrapper">
+    <span class="legal-section">
+      <a class="legal-link" routerLink="/terms-of-service">Terms of Use</a>
+      <span class="dot"></span>
+      <a class="legal-link" routerLink="/privacy-policy">Privacy Policy</a>
+    </span>
+
+    <span class="legal-section">
+      <a class="legal-link" routerLink="/report-harmful-content">Report Content</a>
+      <span class="dot"></span>
+      <a class="legal-link" routerLink="/advertising-opportunities">Advertising</a>
+    </span>
+
+    <span class="legal-section">
+      <a class="legal-link" routerLink="/help">Help</a>
+      <span class="dot"></span>
+      <span class="legal-link">&copy; 2021 Newsreel</span>
+    </span>
+  </section>
+</aside>

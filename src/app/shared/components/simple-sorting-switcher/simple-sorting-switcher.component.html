@@ -1,0 +1,7 @@
+<span
+class="item"
+[ngClass]="{ 'active': item.active }"
+*ngFor="let item of sortItems; trackBy: trackItems"
+(click)="select(item)">
+  {{ item.label }}
+</span>

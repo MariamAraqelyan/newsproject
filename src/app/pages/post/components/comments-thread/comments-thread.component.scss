@@ -1,0 +1,21 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .reply {
+    margin: 30px 0 30px 40px;
+  }
+
+  .more-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .more-btn {
+      color: #fff;
+      background-color: $orange-light;
+      border-radius: 15px;
+    }
+  }
+}

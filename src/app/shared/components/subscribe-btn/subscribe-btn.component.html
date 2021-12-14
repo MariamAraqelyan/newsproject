@@ -1,0 +1,19 @@
+<button
+class="btn stroked"
+*ngIf="(isSubscribed$ | async) && !(isOwnProfile$ | async) else subscribeBtn"
+mat-stroked-button
+[disabled]="(isOwnProfile$ | async) || (loading$ | async)"
+(click)="unsubscribe()">
+  Unsubscribe
+</button>
+
+<ng-template #subscribeBtn>
+  <button
+  class="btn feeled"
+  mat-raised-button
+  newsreelAuthCheck
+  (allow)="subscribe()"
+  [disabled]="(isOwnProfile$ | async) || (loading$ | async)">
+    Subscribe
+  </button>
+</ng-template>

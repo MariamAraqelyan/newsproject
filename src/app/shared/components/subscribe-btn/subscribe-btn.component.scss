@@ -1,0 +1,39 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .btn {
+    width: 100%;
+    min-width: unset;
+    padding: 3px 10px;
+    border-radius: 30px;
+
+    &:disabled {
+      min-height: 46px;
+      color: $gray-deep;
+      background-color: $gray-deep-50;
+      border: none;
+      opacity: .6;
+    }
+
+    @media (max-width: 450px) {
+      padding: 1px 10px;
+      font-size: 13px;
+
+      &:disabled {
+        min-height: auto;
+      }
+    }
+  }
+
+  .feeled {
+    color: #fff;
+    background-color: $orange-light;
+  }
+
+  .stroked {
+    color: $orange-light;
+    border: 1px solid $orange-light;
+  }
+}

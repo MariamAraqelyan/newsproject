@@ -1,0 +1,98 @@
+.phone-number-controller {
+  position: relative;
+  margin-bottom: 15px;
+
+  .iti.iti--allow-dropdown {
+    width: 100%;
+  }
+
+  .dropdown-menu.show {
+    width: 310px;
+  }
+
+  &.custom-phoneNumber__section {
+    z-index: 999;
+    width: 100%;
+    min-height: 3em;
+    margin-top: 5px;
+    padding: 3.5px 5px;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 2px solid #f2f2f270;
+    border-radius: 12px;
+
+    .iti__country-list {
+      position: unset !important;
+      width: 90% !important;
+    }
+
+    .iti__country-name {
+      font-size: 12px !important;
+    }
+
+    .iti.iti--allow-dropdown {
+      width: 100% !important;
+      height: 100% !important;
+
+      input {
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        height: 40px;
+
+        &:focus-visible {
+          border: none !important;
+        }
+      }
+
+      .iti__flag-container {
+        //width: 100%!important;
+        //height: 100%!important;
+
+        &:hover {
+          background: transparent !important;
+
+          .iti__selected-flag {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.phone-number-wrapper {
+  .label {
+    color: #929292;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  newsreel-social-share {
+    flex-direction: column;
+  }
+}
+
+.ngx-mat-tel-input-container .country-selector {
+  opacity: 1 !important;
+}
+
+@media (max-width: 700px) {
+  .form-field-label-name {
+    font-size: 14px!important;
+  }
+
+  .choice-section .text {
+    font-size: 14px!important;
+  }
+}
+
+.mat-select-arrow {
+  color: #000!important;
+}

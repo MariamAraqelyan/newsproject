@@ -1,0 +1,41 @@
+<section class="profile-wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <section class="main-info-wrapper">
+    <div class="avatar-wrapper">
+      <img
+      class="avatar"
+      [src]="user.avatar"
+      [attr.width]="isMobile ? '150px' : '120px'"
+      [attr.height]="isMobile ? '150px' : '120px'"
+      alt="User Avatar"/>
+    </div>
+
+    <section class="info-section">
+      <div class="name">
+        <span class="text" [title]="user.username">{{ user.username }}</span>
+
+        <span class="badge-wrapper" *ngIf="user.is_top_rated">
+          <img src="assets/svg/top-rated.svg" class="badge" height="22px" width="22px" alt="Top rated badge"/>
+          <span class="badge-text">Top Rated</span>
+        </span>
+      </div>
+
+      <newsreel-star-rating [rate]="user.rating" [quantity]="user.own_reviews"></newsreel-star-rating>
+
+      <div class="social-icons">
+        <a [href]="user.facebook || '/'" target="_blank" alt="facebook url">
+          <img src="assets/svg/facebook.svg" class="icon" width="35px" height="35px" alt="Facebook logo"/>
+        </a>
+
+        <a [href]="user.twitter || '/'" target="_blank" alt="twitter url">
+          <img src="assets/svg/twitter.svg" class="icon" width="35px" height="35px" alt="Twitter logo"/>
+        </a>
+
+        <a [href]="user.linkedin || '/'" target="_blank" alt="linkedin url">
+          <img src="assets/svg/linkedin.svg" class="icon" width="35px" height="35px" alt="Linkedin logo"/>
+        </a>
+      </div>
+    </section>
+  </section>
+
+  <p *ngIf="user.bio" class="description">{{ user.bio }}</p>
+</section>

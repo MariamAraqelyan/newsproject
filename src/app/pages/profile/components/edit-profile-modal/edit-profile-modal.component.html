@@ -1,0 +1,89 @@
+<span class="material-icons close-btn" (click)="close()">close</span>
+
+<form class="form-section" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="userData" (submit)="submit()">
+  <section class="inputs-section">
+    <section class="file-wrapper">
+      <div class="file-uploader">
+        <span>Edit Photo</span>
+
+        <newsreel-file-uploader
+        size="130px"
+        icon="person"
+        [imageUrl]="user.avatar"
+        (loaded)="handleImageLoad($event)">
+        </newsreel-file-uploader>
+
+        <img src="/assets/svg/file-upload.svg" class="upload-icon" width="30px" height="30px">
+
+        <span class="error-msg">{{ imageMsg$ | async }}</span>
+      </div>
+
+      <div>
+        <newsreel-text-input
+        class="input-item"
+        icon="person"
+        label="Public Name"
+        placeholder="Public Name"
+        [control]="userData.get('username')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+        </newsreel-text-input>
+
+        <newsreel-text-input
+        class="input-item"
+        type="tel"
+        icon="link"
+        label="Facebook URL"
+        placeholder="Facebook URL"
+        [control]="userData.get('facebook')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+        </newsreel-text-input>
+      </div>
+    </section>
+
+    <newsreel-text-input
+    class="input-item"
+    icon="link"
+    label="Twitter URL"
+    placeholder="Twitter URL"
+    [control]="userData.get('twitter')"
+    [customTrigger$]="errorCheck$"
+    [customMessages]="errorMsgMap$ | async">
+    </newsreel-text-input>
+
+    <newsreel-text-input
+    class="input-item"
+    icon="link"
+    label="LinkedIn URL"
+    placeholder="LinkedIn URL"
+    [control]="userData.get('linkedin')"
+    [customTrigger$]="errorCheck$"
+    [customMessages]="errorMsgMap$ | async">
+    </newsreel-text-input>
+
+    <newsreel-text-input
+    class="input-item"
+    type="textarea"
+    icon="insert_drive_file"
+    label="Description"
+    placeholder="Write a description..."
+    [control]="userData.get('bio')"
+    [customTrigger$]="errorCheck$"
+    [customMessages]="errorMsgMap$ | async">
+    </newsreel-text-input>
+  </section>
+
+  <section class="btn-section">
+    <button
+    class="neewsreel-submit-btn"
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="loading$ | async">
+      Update
+    </button>
+  </section>
+</form>
+
+<newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>

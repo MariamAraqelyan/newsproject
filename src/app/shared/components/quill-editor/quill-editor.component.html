@@ -1,0 +1,19 @@
+<div [id]="toolbarId" class="toolbar">
+  <button class="ql-bold">Bold</button>
+  <button class="ql-italic">Italic</button>
+
+  <ng-container *ngIf="isExtended">
+    <button class="ql-header" value="1">H1</button>
+    <button class="ql-header" value="2">H2</button>
+
+    <button class="ql-list" value="ordered">Ordered</button>
+    <button class="ql-list" value="bullet">Bullet</button>
+  </ng-container>
+</div>
+
+<!-- Create the editor container -->
+<div [id]="editorId" class="editor newsreel-article-content "></div>
+
+<div class="editor-err-wrapper">
+  <span> {{ errMsg$ | async }}</span>
+</div>

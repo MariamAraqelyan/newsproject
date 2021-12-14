@@ -1,0 +1,39 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <section class="user-info" *ngIf="isDesktop">
+    <div class="avatar-wrapper">
+      <img
+      class="avatar"
+      [src]="user.avatar"
+      [attr.width]="isMobile ? '150px' : '120px'"
+      [attr.height]="isMobile ? '150px' : '120px'"
+      alt="User Avatar"/>
+    </div>
+
+    <section class="info-section">
+      <div class="name">
+        <span>{{ user.username }}</span>
+        <span class="badge-wrapper" *ngIf="user.is_top_rated">
+          <img src="assets/svg/top-rated.svg" class="badge" height="22px" width="22px" alt="Top rated badge"/>
+          <span class="badge-text">Top Rated</span>
+        </span>
+      </div>
+
+      <newsreel-star-rating [rate]="user.rating" [quantity]="user.reviews"></newsreel-star-rating>
+    </section>
+  </section>
+
+  <div class="separator" *ngIf="isDesktop"></div>
+
+  <section class="title">
+    <span class="step">STEP 2</span>
+    <span>Write Peer Review</span>
+  </section>
+
+  <form class="main" [formGroup]="reviewData" (submit)="submit()">
+    <textarea class="description" formControlName="description" placeholder="Write a peer review.."></textarea>
+
+    <button mat-raised-button class="move-btn" type="submit" [disabled]="reviewData.invalid">
+      <span class="text">Submit Peer Review</span>
+    </button>
+  </form>
+</section>

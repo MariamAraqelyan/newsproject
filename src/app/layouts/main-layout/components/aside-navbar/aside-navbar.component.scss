@@ -1,0 +1,80 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .wrapper {
+    .news-links {
+      .category {
+        min-height: 40px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        color: black;
+        border-radius: 12px;
+        text-decoration: none;
+        outline: none;
+
+        &:hover {
+          background-color: #ffffff70;
+        }
+
+        &.active {
+          font-weight: 500;
+          background-color: #fff;
+        }
+
+        .icon {
+          color: $orange-mid;
+          margin-right: 10px;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .settings {
+      min-width: 100%;
+      margin: 30px 0;
+      padding: 2px 12px;
+      display: flex;
+      color: $gray-deep;
+      border-radius: 12px;
+
+      .material-icons {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    }
+
+    .legal-wrapper {
+      display: grid;
+      grid-gap: 5px;
+      font-size: 13px;
+
+      .legal-section {
+        display: flex;
+        align-items: center;
+        color: $gray-deep;
+
+        .dot {
+          width: 5px;
+          height: 5px;
+          margin: 0 5px;
+          display: inline-block;
+          background-color: $gray-deep;
+          border-radius: 50%;
+        }
+
+        .legal-link {
+          margin: 0 5px;
+          color: unset;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.menu-item {
+  min-width: 190px;
+}

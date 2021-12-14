@@ -1,0 +1,53 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .btn-section {
+    min-height: 35px;
+    padding-top: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .material-icons {
+      position: absolute;
+      left: 0;
+      color: $gray-deep;
+      cursor: pointer;
+    }
+
+    .line {
+      height: 5px;
+      width: 50px;
+      border-radius: 5px;
+      background-color: $gray-deep-70;
+      cursor: pointer;
+    }
+  }
+
+  .links {
+    display: grid;
+
+    .legal-link {
+      padding: 10px 8px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $gray-deep;
+      border-bottom: 2px solid $gray-mid-70;
+
+      &:last-child {
+        border: none;
+      }
+
+      .icon {
+        margin-right: 15px;
+      }
+
+      .link-text {
+        align-self: end;
+      }
+    }
+  }
+}

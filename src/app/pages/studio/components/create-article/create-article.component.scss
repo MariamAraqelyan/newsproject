@@ -1,0 +1,83 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .blue-theme {
+    padding: 40px 0 30px 0;
+  }
+
+  .wrapper {
+    //padding: 30px 20px;
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    color: $gray-deep;
+
+    .input-wrapper {
+      display: grid;
+      grid-gap: 30px;
+
+      .select {
+        padding: 0 10px;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+
+      .title-input {
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+
+        &::placeholder {
+          color: $gray-deep;
+          opacity: 1;
+        }
+      }
+
+      .toggle {
+        margin: 0 auto;
+        font-size: 14px;
+      }
+    }
+
+    &.desktop-version {
+      //padding: 30px 0;
+
+      .input-wrapper {
+        //grid-template-columns: .5fr .5fr auto;
+        align-items: center;
+
+        &.no-toggle {
+          //grid-template-columns: .5fr .5fr;
+        }
+      }
+
+      .neewsreel-submit-btn {
+        width: 300px;
+        justify-self: center;
+      }
+    }
+  }
+}
+
+.relative-form-field {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.form-field-label-name {
+  width: 100%;
+  display: block;
+  margin-bottom: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #141414;
+}

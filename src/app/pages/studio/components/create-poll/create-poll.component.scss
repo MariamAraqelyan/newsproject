@@ -1,0 +1,141 @@
+@import 'src/app/styles/colors';
+
+
+:host {
+  padding: 0 0 20px 0;
+  display: grid;
+  position: relative;
+  color: $gray-deep;
+
+  .select {
+    margin-bottom: 15px;
+    padding: 0 10px;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    .select-label {
+      color: $gray-deep;
+    }
+  }
+
+  .title-input {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: $gray-deep;
+      opacity: 1;
+    }
+  }
+
+  .choice-section {
+    margin: 30px 0;
+
+    .text {
+      width: 100%;
+      display: block;
+      margin-bottom: 2px;
+      //font-family: Metropolis;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: -0.02em;
+      color: #141414;
+    }
+
+    .choices-wrapper {
+      padding: 15px 0;
+      display: grid;
+      grid-gap: 15px;
+
+      .choice {
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        align-items: center;
+        grid-gap: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        .material-icons {
+          font-size: 15px;
+          text-align: center;
+          align-self: end;
+          cursor: pointer;
+        }
+
+        .choice-input {
+          border: none;
+          outline: none;
+
+          &::placeholder {
+            color: $gray-deep;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .add {
+      color: $orange-deep;
+      cursor: pointer;
+    }
+  }
+
+  .neewsreel-submit-btn {
+    font-weight: bold;
+    width: 300px;
+    justify-self: center;
+  }
+
+  @media (min-width: 1440px) {
+    .choice-section {
+      .text {
+        padding: 0;
+        color: #000;
+
+        &.add {
+          color: $orange-light;
+        }
+      }
+    }
+
+    .neewsreel-submit-btn {
+      width: 300px;
+      justify-self: center;
+    }
+  }
+}
+
+.relative-form-field {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.form-field-label-name {
+  width: 100%;
+  display: block;
+  margin-bottom: 16px;
+  //font-family: Metropolis;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #141414;
+}
+
+.select-new-label {
+  //font-family: Metropolis;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #B6B6B6;
+}

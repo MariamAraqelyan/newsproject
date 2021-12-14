@@ -1,0 +1,63 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+  position: relative;
+
+  .wrapper {
+    height: 100%;
+    overflow: hidden;
+
+    .title {
+      margin: 0 0 15px 0;
+      font-weight: normal;
+    }
+
+    .story-section {
+      max-height: calc(100% - 38px);
+      overflow: auto;
+
+      .story {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      .empty {
+        color: $gray-deep;
+        font-weight: normal;
+      }
+    }
+
+    &.mobile-version {
+      .title {
+        margin: 0 15px;
+      }
+
+      .story-section {
+        .story {
+          margin: 15px;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      @media (max-width: 375px) {
+        .story-section {
+          .story {
+            margin: 15px 10px;
+          }
+        }
+      }
+
+      @media (max-width: 340px) {
+        .story-section {
+          .story {
+            margin: 15px 5px;
+          }
+        }
+      }
+    }
+  }
+}

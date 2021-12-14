@@ -1,0 +1,49 @@
+<p class="mobile-title">Share to</p>
+
+<ul class="social-list">
+
+  <li class="social-list__item">
+    <a class="emailForm"
+       href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{postUrl}}."
+       title="Share by Email">
+      <button class="btn email" mat-raised-button>
+      <span class="btn-content">
+        <img src="assets/svg/message-badge.svg" class="icon" width="20px" height="20px" alt="Twitter logo"/>
+      </span>
+      </button>
+
+      <span class="social-list__title">Share By Email</span>
+    </a>
+  </li>
+
+  <li class="social-list__item" (click)="shareLink('facebook')">
+    <button class="btn facebook" mat-raised-button>
+      <span class="btn-content">
+        <img src="assets/svg/facebook-badge.svg" class="icon" width="20px" height="20px" alt="Facebook logo"/>
+      </span>
+    </button>
+
+    <span class="social-list__title">Share to FaceBook</span>
+  </li>
+
+  <li class="social-list__item" (click)="shareLink('twitter')">
+    <button class="btn twitter" mat-raised-button>
+      <span class="btn-content">
+        <img src="assets/svg/twitter-badge.svg" class="icon" width="20px" height="20px" alt="Twitter logo"/>
+      </span>
+    </button>
+    <span class="social-list__title">Share to Twitter</span>
+  </li>
+
+  <li class="social-list__item" (click)="copyContent()">
+    <button class="btn copy" mat-raised-button>
+      <span class="btn-content">
+        <img src="assets/svg/copy-badge.svg" class="icon" width="20px" height="20px" alt="Twitter logo"/>
+      </span>
+    </button>
+
+    <span class="social-list__title">Copy Link</span>
+  </li>
+</ul>
+
+<button class="cancel-btn" (click)="closeSection()">Cancel</button>

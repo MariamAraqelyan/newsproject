@@ -1,0 +1,48 @@
+<section class="btn-section">
+  <span class="material-icons" (click)="close()">close</span>
+  <div class="line" (click)="close()"></div>
+</section>
+
+<section class="links" (click)="close()">
+  <a routerLink="/terms-of-service" class="legal-link">
+    <span class="material-icons icon">description</span>
+    <span class="link-text">Terms of Service</span>
+  </a>
+
+  <a routerLink="/privacy-policy" class="legal-link">
+    <span class="material-icons icon">lock</span>
+    <span class="link-text">Privacy Policy</span>
+  </a>
+
+  <a routerLink="/report-harmful-content" class="legal-link">
+    <span class="material-icons icon">report_problem</span>
+    <span class="link-text">Report Harmful or Plagiarised Content</span>
+  </a>
+
+  <a routerLink="/advertising-opportunities" class="legal-link">
+    <span class="material-icons icon">campaign</span>
+    <span class="link-text">Advertising Opportunities</span>
+  </a>
+
+  <a routerLink="/help" class="legal-link">
+    <img class="icon" src="assets/svg/help.svg" width="22px" height="22px" alt="help icon">
+    <span class="link-text">Help</span>
+  </a>
+
+  <ng-container *neewsreelAllowForRoles="[Roles.Guest]">
+    <a class="legal-link" routerLink="/sign-in">
+      <span class="material-icons icon">login</span>
+      <span class="link-text">Sign In</span>
+    </a>
+
+    <a class="legal-link" routerLink="/sign-up">
+      <span class="material-icons icon">app_registration</span>
+      <span class="link-text">Sign Up</span>
+    </a>
+  </ng-container>
+
+  <span class="legal-link" *neewsreelAllowForRoles="[Roles.Admin, Roles.Journalist]" (click)="logout()">
+    <span class="material-icons icon">logout</span>
+    <span class="link-text">Logout</span>
+  </span>
+</section>

@@ -1,0 +1,15 @@
+:host {
+  min-height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  cursor: default;
+
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: gray;
+  }
+}

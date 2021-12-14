@@ -1,0 +1,47 @@
+<a class="link-wrapper" [routerLink]="['/post', poll.slug]" [state]="{ post: poll }" title="Go to the Post Page">
+  <!-- TODO: use pipe for text - 1000 -> 1k -->
+  <newsreel-post-header-info
+  iconUrl="assets/svg/votes-graph.svg"
+  [text]="poll.votes + ' Votes'"
+  [createdAt]="poll.created_at">
+  </newsreel-post-header-info>
+</a>
+
+<article class="content" *ngIf="!(isVoted$ | async) else result">
+  <h1 class="title">{{ poll.question }}</h1>
+
+  <mat-radio-group class="choice-container" newsreelAuthCheck [formControl]="voteResult" (change)="selectPollValue($event)">
+    <mat-radio-button
+    class="choice"
+    color="primary"
+    *ngFor="let choice of poll.choices"
+    [value]="choice.id"
+    [disabled]="!(user$ | async)">
+      {{ choice.choice_text }}
+    </mat-radio-button>
+  </mat-radio-group>
+</article>
+
+<ng-template #result>
+  <a class="link-wrapper" [routerLink]="['/post', poll.slug]" [state]="{ post: poll }" title="Go to the Post Page">
+    <article class="content">
+      <h1 class="title">{{ poll.question }}</h1>
+
+      <section class="choice-container">
+        <div class="choice result" [ngClass]="{ 'active': choice.is_voted }" *ngFor="let choice of poll.choices; trackBy: trackChoices">
+          <span class="text">{{ choice.choice_text }}</span>
+          <span class="text">{{ choice.votes + '%' }}</span>
+          <div class="background" [style.width]="choice.votes + '%'"></div>
+        </div>
+      </section>
+    </article>
+  </a>
+</ng-template>
+
+<newsreel-post-author-info
+[post]="poll"
+[showBtnPanel]="showFooterBtnPanel"
+(vote)="upvote()"
+(report)="report()"
+(delete)="handleDelete()">
+</newsreel-post-author-info>

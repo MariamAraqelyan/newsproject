@@ -1,0 +1,18 @@
+<a class="wrapper" [routerLink]="['/post', meme.slug]" [state]="{ post: meme }" title="Go to the Post Page">
+  <!-- TODO: use pipe for text - 1000 -> 1k -->
+  <newsreel-post-header-info [text]="meme.comments + ' comments'" [createdAt]="meme.created_at"></newsreel-post-header-info>
+
+  <article class="content">
+    <h1 *ngIf="meme.title as title" class="title">{{ title }}</h1>
+
+    <img class="meme" [src]="meme.image" width="100%" [attr.height]="readMode ? '300px' : '100%'" loading="lazy" alt="Meme image">
+  </article>
+</a>
+
+<newsreel-post-author-info
+[post]="meme"
+[showBtnPanel]="showFooterBtnPanel"
+(vote)="upvote()"
+(report)="report()"
+(delete)="handleDelete()">
+</newsreel-post-author-info>

@@ -1,0 +1,31 @@
+<label [for]="inputId" class="wrapper">
+  <span class="neewsreel-input-label">{{ label }}</span>
+
+  <section class="neewsreel-input-wrapper" [ngClass]="{ 'error': message$ | async  }">
+    <span class="material-icons neewsreel-input-icon" [ngClass]="{ 'area-icon': type === 'textarea' }"> {{ icon }}</span>
+
+    <textarea
+    *ngIf="type === 'textarea' else default"
+    class="neewsreel-input area"
+    rows="5"
+    [id]="inputId"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    (blur)="control.updateValueAndValidity()"
+    #input>
+    </textarea>
+
+    <ng-template #default>
+      <input
+      class="neewsreel-input"
+      [id]="inputId"
+      [type]="type"
+      [placeholder]="placeholder"
+      [formControl]="control"
+      (blur)="control.updateValueAndValidity()"
+      #input>
+    </ng-template>
+  </section>
+</label>
+
+<span class="error-msg">{{ message$ | async }}</span>

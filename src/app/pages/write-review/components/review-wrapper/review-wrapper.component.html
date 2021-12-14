@@ -1,0 +1,27 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <newsreel-mob-header
+  class="header"
+  *ngIf="isMobile"
+  [isMainDisplay]="false"
+  [showBtnSection]="isFirstStep$ | async"
+  (back)="handleBackEvent()">
+  </newsreel-mob-header>
+
+  <section class="header" *ngIf="isDesktop">
+    <span class="material-icons" *ngIf="isFirstStep$ | async else arrow" (click)="handleBackEvent()">close</span>
+
+    <ng-template #arrow>
+      <span class="material-icons" (click)="handleBackEvent()">keyboard_arrow_left</span>
+    </ng-template>
+  </section>
+
+  <section class="main">
+    <newsreel-review-rate *ngIf="isFirstStep$ | async else second" [user]="user" (rateSelect)="handleRateSelect($event)"></newsreel-review-rate>
+
+    <ng-template #second>
+      <newsreel-review-description [user]="user" (setDescription)="handleDescriptionSubmit($event)"></newsreel-review-description>
+    </ng-template>
+  </section>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</section>

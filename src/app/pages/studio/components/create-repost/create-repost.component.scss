@@ -1,0 +1,76 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .wrapper {
+    //padding: 20px 10px;
+    position: relative;
+    display: grid;
+    grid-gap: 20px;
+    color: $gray-deep;
+
+    .input-container {
+      display: grid;
+      grid-gap: 20px;
+
+      .select {
+        padding: 0 10px;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+
+      .url-input {
+        padding: 20px 18px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+      }
+    }
+
+    &.desktop-version {
+      //padding: 30px 0;
+      grid-gap: 30px;
+
+      .input-container {
+        //grid-template-columns: .5fr .5fr;
+      }
+
+      .neewsreel-submit-btn {
+        width: 300px;
+        justify-self: center;
+      }
+    }
+  }
+}
+
+.form-field-label-name {
+  width: 100%;
+  display: block;
+  margin-bottom: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #141414;
+}
+
+.relative-form-field {
+  mat-form-field {
+    width: 100%;
+  }
+
+  .url-input {
+    width: 100%;
+  }
+}
+
+.select-new-label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #B6B6B6;
+}

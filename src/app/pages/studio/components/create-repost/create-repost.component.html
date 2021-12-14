@@ -1,0 +1,69 @@
+
+<form class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }" [formGroup]="repost" (submit)="submit()">
+
+  <div class="input-container">
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Select Post Type</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <mat-select [(value)]="postTypeList[0]" (selectionChange)="changePostType($event.value)">
+          <mat-option *ngFor="let category of postTypeList"
+                      [value]="category">{{ category.name }}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+    <div class="relative-form-field">
+
+      <label class="form-field-label-name">Choose category</label>
+
+      <mat-form-field class="select" appearance="outline">
+        <mat-label class="select-new-label" *ngIf="repost.get('category').value == ''">Category</mat-label>
+
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories"
+                      [value]="category.value">{{ category.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="relative-form-field">
+      <label class="form-field-label-name">Repost Type</label>
+
+      <mat-form-field class="select" appearance="outline">
+<!--        <mat-label>Repost Type</mat-label>-->
+
+<!--        (selectionChange)="changePostTypePerPage($event.value)"-->
+        <mat-select formControlName="repost_type">
+          <mat-option *ngFor="let category of postTypeByPageList"
+                      [value]="category">{{ category.name }}</mat-option>
+        </mat-select>
+
+<!--        <mat-select formControlName="category">-->
+<!--          <mat-option *ngFor="let category of categories"-->
+<!--                      [value]="category.value">{{ category.label }}</mat-option>-->
+<!--        </mat-select>-->
+
+      </mat-form-field>
+
+    </div>
+
+
+
+    <div class="relative-form-field">
+
+      <label class="form-field-label-name">{{'Submit ' + (isTweet ? 'embed tweet' : 'Article') + ' URL'}}</label>
+
+      <input class="url-input" [formControl]="repost.get('url')" [placeholder]="'Submit ' + (isTweet ? 'embed tweet' : 'Article') + ' URL'">
+    </div>
+
+  </div>
+
+  <button type="submit" class="neewsreel-submit-btn" mat-raised-button [disabled]="repost.invalid || (loading$ | async)">Publish</button>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+</form>

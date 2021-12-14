@@ -1,0 +1,47 @@
+@import 'src/app/styles/colors';
+
+:host {
+  padding: 80px 0 20px 0;
+  display: block;
+  position: relative;
+
+  .header {
+    padding: 15px 20px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      margin: 0;
+      font-weight: normal;
+
+      .quantity {
+        color: $gray-deep;
+      }
+    }
+  }
+
+  .main {
+    max-height: 100%;
+    overflow: auto;
+
+    .review-wrapper {
+      margin: 20px;
+
+      .response {
+        display: block;
+        margin: 25px 0 0 10%;
+      }
+    }
+
+    .empty {
+      margin: 20px;
+      color: $gray-deep;
+      font-weight: normal;
+    }
+  }
+}

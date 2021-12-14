@@ -1,0 +1,59 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+
+  .wrapper {
+    color: initial;
+    outline: none;
+    text-decoration: none;
+
+    .content {
+      padding: 30px 0;
+      -webkit-overflow-scrolling: touch;
+
+      .title {
+        margin: 0 0 20px 0;
+        font-size: 20px;
+        font-weight: normal;
+      }
+
+      .cover {
+        min-height: 120px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      .iframe-container {
+        -webkit-overflow-scrolling: touch;
+        overflow: auto;
+        background-color: #000;
+
+        .iframe-el {
+          -webkit-overflow-scrolling: touch;
+          overflow: hidden;
+        }
+      }
+
+      .vimeo-container {
+        min-height: 150px;
+        padding: 56.25% 0 0 0;
+        position: relative;
+
+        .vimeo-iframe {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .article-content {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid $gray-deep-70;
+  }
+}

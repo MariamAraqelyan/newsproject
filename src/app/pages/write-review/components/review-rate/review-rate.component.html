@@ -1,0 +1,47 @@
+<section class="wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <section class="user-info">
+    <div class="avatar-wrapper">
+      <img
+      class="avatar"
+      [src]="user.avatar"
+      [attr.width]="isMobile ? '150px' : '120px'"
+      [attr.height]="isMobile ? '150px' : '120px'"
+      alt="User Avatar"/>
+    </div>
+
+    <section class="info-section">
+      <div class="name">
+        <span>{{ user.username }}</span>
+        <span class="badge-wrapper" *ngIf="user.is_top_rated">
+          <img src="assets/svg/top-rated.svg" class="badge" height="22px" width="22px" alt="Top rated badge"/>
+          <span class="badge-text">Top Rated</span>
+        </span>
+      </div>
+
+      <newsreel-star-rating [rate]="user.rating" [quantity]="user.reviews"></newsreel-star-rating>
+    </section>
+  </section>
+
+  <div class="separator">
+    <span class="line"></span>
+    <span></span>
+  </div>
+
+  <section class="title">
+    <span class="step">STEP 1</span>
+    <span>Choose Star Rating</span>
+  </section>
+
+  <section class="rate-section">
+    <div class="rate-item" *ngFor="let item of fields$ | async; trackBy: trackItem">
+      <span class="label">{{ item.label }}</span>
+      <newsreel-star-rating-setter (select)="handleStarSelect($event, item)"></newsreel-star-rating-setter>
+    </div>
+  </section>
+
+  <button mat-raised-button class="move-btn" [disabled]="disabled$ | async" (click)="submit()">
+    <span class="text">Move to Step 2</span>
+    <span class="material-icons">arrow_forward_ios</span>
+  </button>
+
+</section>

@@ -1,0 +1,19 @@
+<newsreel-post-comment [comment]="comment" [allowReply]="true" [postId]="postId" (reply)="handleReply($event)"></newsreel-post-comment>
+
+<newsreel-post-comment
+class="reply"
+*ngFor="let reply of replies$ | async; trackBy: trackReplies"
+[comment]="reply">
+</newsreel-post-comment>
+
+<div class="more-section">
+  <button
+  *ngIf="!(isAllLoaded$ | async) && !(loading$ | async)"
+  class="more-btn"
+  mat-raised-button
+  (click)="getReplies()">
+    Load Replies
+  </button>
+
+  <newsreel-animated-spinner [showSpinner]="loading$ | async"></newsreel-animated-spinner>
+</div>

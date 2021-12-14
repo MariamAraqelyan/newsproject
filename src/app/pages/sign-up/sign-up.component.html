@@ -1,0 +1,134 @@
+<section class="sign-wrapper" [ngClass]="{ 'desktop-version': isDesktop }">
+  <a routerLink="/sign-in" class="back-btn" *ngIf="isMobile">
+    <span class="material-icons">keyboard_arrow_left</span>
+  </a>
+
+  <section class="main-section">
+    <newsreel-logo-link class="logo" *ngIf="isDesktop"></newsreel-logo-link>
+
+    <section class="file-section" *ngIf="isMobile">
+      <newsreel-file-uploader [title]="'Add Photo'" icon="person" (loaded)="handleImageLoad($event)"></newsreel-file-uploader>
+      <span class="error-msg">{{ imageMsg$ | async }}</span>
+    </section>
+
+    <form class="form-section" [formGroup]="userData" (submit)="submit()">
+      <section class="inputs-section">
+        <section class="file-wrapper" *ngIf="isDesktop">
+          <div class="file-uploader">
+            <span>Add Photo</span>
+
+            <newsreel-file-uploader
+            size="130px"
+            icon="person"
+            (loaded)="handleImageLoad($event)">
+            </newsreel-file-uploader>
+
+            <img src="/assets/svg/file-upload.svg" class="upload-icon" width="30px" height="30px">
+
+            <span class="error-msg">{{ imageMsg$ | async }}</span>
+          </div>
+
+          <div>
+            <newsreel-text-input
+            class="input-item"
+            icon="person"
+            label="Public Name"
+            [control]="userData.get('username')"
+            [customTrigger$]="errorCheck$"
+            [customMessages]="errorMsgMap$ | async">
+            </newsreel-text-input>
+
+
+            <label class="phone-number-wrapper" *ngIf="isDesktop">
+              <span class="label">
+                  Phone Number
+              </span>
+
+              <div class="phone-number-controller custom-phoneNumber__section">
+                <input type="text"
+                       ng2TelInput
+                       [ng2TelInputOptions]="{initialCountry: 'us'}"
+                       (ng2TelOutput)="getNumber($event)"
+                       formControlName="intl_phone_number"
+                       (countryChange)="onCountryChange($event)" />
+              </div>
+
+            </label>
+          </div>
+
+
+        </section>
+
+        <newsreel-text-input
+        *ngIf="isMobile"
+        class="input-item"
+        icon="person"
+        label="Public Name"
+        [control]="userData.get('username')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+        </newsreel-text-input>
+
+        <label class="phone-number-wrapper" *ngIf="isMobile">
+              <span class="label">
+                  Phone Number
+              </span>
+
+          <div class="phone-number-controller custom-phoneNumber__section">
+            <input type="text"
+                   ng2TelInput
+                   [ng2TelInputOptions]="{initialCountry: 'us'}"
+                   (ng2TelOutput)="getNumber($event)"
+                   formControlName="intl_phone_number"
+                   (countryChange)="onCountryChange($event)" />
+          </div>
+
+        </label>
+
+        <newsreel-text-input
+        class="input-item"
+        type="email"
+        icon="mail_outline"
+        label="Email"
+        [control]="userData.get('email')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+        </newsreel-text-input>
+
+        <newsreel-text-input
+        class="input-item"
+        type="password"
+        icon="lock"
+        label="Password"
+        [control]="userData.get('password')"
+        [customTrigger$]="errorCheck$"
+        [customMessages]="errorMsgMap$ | async">
+        </newsreel-text-input>
+      </section>
+
+      <section class="btn-section">
+        <button
+        class="neewsreel-submit-btn"
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="loading$ | async">
+          Signup Now
+        </button>
+      </section>
+
+      <section class="links-section" *ngIf="isDesktop">
+        <span class="text">Already have an account?</span>
+        <a class="footer-link" routerLink="/sign-in">Log in</a>
+      </section>
+    </form>
+  </section>
+
+  <section class="links-section" *ngIf="isMobile">
+    <span class="text">Already have an account?</span>
+    <a class="footer-link" routerLink="/sign-in">Log in</a>
+  </section>
+
+  <newsreel-spinner [showSpinner]="loading$ | async"></newsreel-spinner>
+
+</section>

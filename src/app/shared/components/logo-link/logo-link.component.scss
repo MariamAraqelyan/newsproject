@@ -1,0 +1,27 @@
+@import 'src/app/styles/colors';
+
+:host {
+  display: block;
+  font-size: 16px;
+
+  .logo-link {
+    text-decoration: none;
+    color: unset;
+
+    .logo {
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      line-height: .8em;
+      font-size: 1.625em;
+
+      .dot {
+        margin-right: 5px;
+        width: .77em;
+        height: .77em;
+        border-radius: 50%;
+        background-color: $logo-red;
+      }
+    }
+  }
+}

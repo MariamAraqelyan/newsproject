@@ -1,0 +1,20 @@
+<section class="wrapper" [ngClass]="{ 'responsive': allowResponsive, 'special-size': dynamicSize }">
+  <span class="rate" *ngIf="!showRateLast">{{ rate }}</span>
+
+  <div class="stars-wrapper">
+    <span
+      class="material-icons"
+      [ngClass]="{ 'filled': star.isFilled }"
+      *ngFor="let star of starList$ | async; trackBy: trackStars">
+      {{ star.isHalfStar ? 'star_half' : 'star' }}
+    </span>
+  </div>
+
+  <span class="quantity" *ngIf="showQuantity">
+    <ng-container *ngIf="isShort else long">({{ quantity }})</ng-container>
+
+    <ng-template #long>({{ quantity }} review{{ quantity === 1 ? '' : 's' }})</ng-template>
+  </span>
+
+  <span class="rate right" *ngIf="showRateLast">{{ rate }}</span>
+</section>
